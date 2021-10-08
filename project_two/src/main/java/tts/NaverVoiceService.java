@@ -37,6 +37,9 @@ public class NaverVoiceService implements NaverService  { //implements NaverServ
 	     String clientSecret = "jp0VCunkagZpYP8S9esAMFJIYQxnA5NtX17ft61A";//애플리케이션 클라이언트 시크릿값";
 
 	     try {
+	    	 
+	    	  ///////////파일을 DB에서 가져와야함///////////
+	    	 
 	         String text = URLEncoder.encode("오늘부터는 파이널 프로젝트 기획 준비를 할 시간입니다", "UTF-8"); // 13자
 	         text="";
 	         String textfile = "C:/Users/knifejo/Desktop/images/"+file;
@@ -73,8 +76,12 @@ public class NaverVoiceService implements NaverService  { //implements NaverServ
 	             byte[] bytes = new byte[1024];
 	             // 랜덤한 이름으로 mp3 파일 생성
 	              
+	             
+	             
 	             SimpleDateFormat sf = new SimpleDateFormat("yyyyMMddHHmmss");
 	             tempname = sf.format(new Date());
+	             
+	             ///////////파일을 DB에서 가져와야함///////////
 	             
 	             File f = new File("C:\\Users\\knifejo\\Desktop\\images/" + tempname + ".mp3");
 	             f.createNewFile();

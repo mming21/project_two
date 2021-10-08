@@ -24,8 +24,13 @@ public class NaverVoiceController {
 	public ModelAndView faceinput() {
 		System.out.println("컨트롤러실행");
 	
+		
+		  ///////////파일을 DB에서 가져와야함///////////
+		
 	File f = new File("C:/Users/knifejo/Desktop/images");
 	String[] namelist = f.list();
+	
+	
 	
 	ModelAndView mv= new ModelAndView();
 	mv.addObject("filelist",namelist);
