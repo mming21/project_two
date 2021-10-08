@@ -5,4 +5,4 @@
 5. 소스 작성
 6. git add 작성파일이름
 7. git commit -m '메시지 내용'
-8. git push origin master
+9. git push origin master(push전 항상 pull먼저 해보기)
