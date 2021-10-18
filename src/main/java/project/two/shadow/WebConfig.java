@@ -8,10 +8,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebConfig implements WebMvcConfigurer{
 	
 	
+	
+	  ///////////파일을 DB에서 가져와야함///////////
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/naverimages/**")
-		.addResourceLocations("file:///C:/Users/knifejo/Desktop/images/");
+		registry.addResourceHandler("/prjtts/**")
+		.addResourceLocations("file:///C:\\Users\\knifejo\\Desktop\\프로젝트\\text파일/");
+		
+		
 	}
 
 }
