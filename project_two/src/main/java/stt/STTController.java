@@ -12,11 +12,11 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 public class STTController {
 	@Autowired
-	STTService speechservice;
+	STTService sttservice;
 	
 	@RequestMapping("stt")
 	public String serviceForm() {
-		return "/stt_csr/speechinput2";
+		return "/stt_csr/sttinput";
 	}
 	
 	//upload파일 저장 후 파일명 전달
@@ -40,11 +40,11 @@ public class STTController {
     @ResponseBody
     public String sttService(String file) {
     	
-    	String response = speechservice.test(file); //test함수 결과는 {"text":"결과"} 형태로 출력된다.    	
+    	String response = sttservice.test(file); //test함수 결과는 {"text":"결과"} 형태로 출력된다.    	
 		JSONObject obj = new JSONObject(response);
 		String text = (String)obj.get("text");
 		System.out.println(text);    	
     	return response;
-    }
+    }    
 	
 }

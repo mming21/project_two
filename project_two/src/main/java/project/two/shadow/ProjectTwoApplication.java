@@ -5,12 +5,18 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 import stt.STTController;
+import totalservice.TotalServiceController;
+import translation.PapagoController;
+import tts.ProjectTtsController;
 import upload.UploadController;
 
 @SpringBootApplication
 @ComponentScan
 @ComponentScan(basePackageClasses = STTController.class)
 @ComponentScan(basePackageClasses = UploadController.class)
+@ComponentScan(basePackageClasses = PapagoController.class)
+@ComponentScan(basePackageClasses = ProjectTtsController.class)
+@ComponentScan(basePackageClasses = TotalServiceController.class)
 public class ProjectTwoApplication {
 
 	public static void main(String[] args) {

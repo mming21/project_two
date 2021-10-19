@@ -1,32 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>
-<script src="jquery-3.2.1.min.js"></script>
-	<head>
-	    <meta charset="utf-8" />
-	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	    <meta name="description" content="" />
-	    <meta name="author" content="" />
-	    <title>Creative - Start Bootstrap Theme</title>
-	    <!-- Favicon-->
-	    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-	    <!-- Bootstrap Icons-->
-	    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-	    <!-- Google fonts-->
-	    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
-	    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
-	    <!-- SimpleLightbox plugin CSS-->
-	    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
-	    <!-- Core theme CSS (includes Bootstrap)-->
-	    <link href="css/styles.css" rel="stylesheet" />
-	</head>
-	<body id="page-top">
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>K Playground</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap Icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- SimpleLightbox plugin CSS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#page-top">Shadow Service</a>
+                <a class="navbar-brand" href="#page-top">K Playground</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
@@ -43,12 +42,13 @@
             <div class="container px-4 px-lg-5 h-100">
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-8 align-self-end">
-                        <h1 class="text-white font-weight-bold">10월에 어느 멋진날에</h1>
+                        <h1 class="text-white font-weight-bold">Your Favorite Place for</h1>
+                        <h1 class="text-white font-weight-bold">K-culture Play</h1>
                         <hr class="divider" />
                     </div>
                     <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 mb-5">OCR, TTS, STT 서비스를 제공합니다.</p>
-                        <a class="btn btn-primary btn-xl" href="#about">자세히 보기</a>
+                        <p class="text-white-75 mb-5">K-playground can help you happier</p>
+                        <a class="btn btn-primary btn-xl" href="#about">Find Out More</a>
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                     <div class="col-lg-8 text-center">
                         <h2 class="text-white mt-0">We've got what you need!</h2>
                         <hr class="divider divider-light" />
-                        <p class="text-white-75 mb-4">다양한 서비스를 즐겨보세요!</p>
+                        <p class="text-white-75 mb-4">K-playground will guide you through all the K culture you are curious about.</p>
                         <a class="btn btn-light btn-xl" href="#services">Get Started!</a>
                     </div>
                 </div>
@@ -68,111 +68,138 @@
         </section>
         <!-- Services-->
         <section class="page-section" id="services">
-            <!-- <div class="container px-4 px-lg-5"> -->
             <div class="container px-4 px-lg-5">
-                <!-- <h2 class="text-center mt-0">At Your Service</h2> -->
-                <h2 class="text-center mt-0">음성파일 텍스트 변환 서비스 체험하기</h2>
+                <h2 class="text-center mt-0">At Your Service</h2>
                 <hr class="divider" />
-					<div id="uploadPart">
-					    <input type="file" id="file1" name="file1"> 
-					    <button id="btn_submit" onclick="uploadFile()">전송</button>
-					</div>
-                <hr class="divider" />
-					<div id="sttPart">
-						<textarea cols="50" rows="30" id="txtArea"></textarea>
-						<button id="sttBtn" onclick="sttBtn()">텍스트 변환</button>
-					</div>
-                <hr class="divider" />
-					<div id="papagoPart">
-						<textarea cols="50" rows="30" id="txtArea2"></textarea>
-						<button id="sttBtn" onclick="papagoBtn()">영어 번역</button>
-					</div>
-					
-<!-- <script src="jquery-3.2.1.min.js"></script>
-<script>	
- 	var txtArea = document.getElementById("txtArea");
-	
-	//전역변수 선언
-	var upload_resultData; //파일명 저장 변수
-	var stt_resultData; //stt 결과 데이터 저장 변수
-	
-	//파일 업로드
-	function uploadFile(){
-	    var formData = new FormData();
-	    formData.append("file1", $("#file1")[0].files[0]);
-	
-	    $.ajax({
-	        url: '/uploadresult',
-	        processData: false,
-	        contentType: false,
-	        data: formData,
-	        type: 'POST',
-	        success: function(uploadData){	        	
-	            alert("파일명 : " + uploadData + " 업로드 완료");
-	            upload_resultData = uploadData;//파일명 저장
-	        }//success
-	    });//ajax
-	}//uploadFile()
-	
-	function sttBtn(){
-		$.ajax({
-			url : '/sttservice',
-			data : {"file": upload_resultData},
-			dataType : 'json',
-			type : 'post',
-			success : function(sttData){
-				console.log(sttData);
-				$("#txtArea").val(JSON.stringify(sttData.text));
-				stt_resultData = JSON.stringify(sttData.text);//stt결과 저장
-			}//success			
-		})//ajax
-	}//sttBtn()
-	
-	function papagoBtn(){
-		$.ajax({
-			url : '/papagoservice',
-			data : {"text": stt_resultData},
-			dataType : 'json',
-			type : 'post',
-			success : function(result){
-				console.log(result);
-				$("#txtArea2").val(JSON.stringify(result.message.result.translatedText));
-			}//success			
-		})//ajax
-	}//sttBtn()
-	
-</script> -->
-					
-                <!--<div class="row gx-4 gx-lg-5">
-                     <div class="col-lg-3 col-md-6 text-center">
+                <div class="row gx-4 gx-lg-5">
+                    <div class="col-lg-6 col-md-6 text-center"> <!-- col-lg-6 : 50% -->
                         <div class="mt-5">
                             <div class="mb-2"><i class="bi-gem fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Sturdy Themes</h3>
-                            <p class="text-muted mb-0">Our themes are updated regularly to keep them bug free!</p>
+                            
+                            <h3 class="h4 mb-2">Text To Speech Service</h3>
+							<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+							<script type="text/javascript">
+							$(document).ready(function(){
+								// 1. #data 공간에서 keyup이라는 이벤트가 발생했을 때
+								$("#data").val();
+								$("#data").keyup(function(){
+									// 2. #out 공간에 #data의 내용이 출력된다.
+									$("#out").text($("#data").val());
+									// #out의 위치에 text로 데이터를 받는다.(setter)
+									// 들어가는 데이터는 #data의 값(.val())이다. (getter)
+									// 메서드 괄호 안에 아무것도 없으면 getter, 파라미터가 있으면 setter이다.
+								});
+							});
+							</script>
+							
+							<div class="container" id="TTSservice" align="center">								
+								<% double speed[]={5,0};
+								String speedinform[]={"0.5x", "1x"};
+								%>
+								
+								<form action="/ttsinput" method="post">
+								Please enter Korean in the input box below<br>
+								<textarea id="data" name="out" rows="10" cols="30"></textarea><br><br><br>
+								
+								Select voice play speed :
+								<% for(int i=0; i<speed.length; i++){ %>
+								<input type=radio name="speed" value=<%=speed[i]   %>> <%=speedinform[i]%>
+								<%} %>
+								
+								<input type=submit value="Play"> <br><br>
+								</form>
+								<audio id="audio" src="/naverimages/${ttsoutput}" controls="controls"></audio><br><br>
+								<script>
+								var mp3 = document.getElementById("mp3"); //${mp3file} document.getElementById("mp3");
+								mp3.play();
+								</script>
+								Result<br>
+								<textarea rows="10" cols="30">${out }</textarea>
+							</div>							
                         </div>
+                        
                     </div>
-                    <div class="col-lg-3 col-md-6 text-center">
+                    <div class="col-lg-6 col-md-6 text-center">
                         <div class="mt-5">
                             <div class="mb-2"><i class="bi-laptop fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Up to Date</h3>                            
-                            <p class="text-muted mb-0">All dependencies are kept current to keep things fresh.</p>
+                            <h3 class="h4 mb-2">Sound To Text Service</h3>
+                            <p class="text-muted mb-0">upload your text file.</p>
+                            <script>	
+							 	var txtArea = document.getElementById("txtArea");
+								
+								//전역변수 선언
+								var upload_resultData; //파일명 저장 변수
+								var stt_resultData; //stt 결과 데이터 저장 변수
+								
+								//파일 업로드
+								function uploadFile(){
+								    var formData = new FormData();
+								    formData.append("file1", $("#file1")[0].files[0]);
+								
+								    $.ajax({
+								        url: '/uploadresult',
+								        processData: false,
+								        contentType: false,
+								        data: formData,
+								        type: 'POST',
+								        success: function(uploadData){	        	
+								            alert("파일명 : " + uploadData + " 업로드 완료");
+								            upload_resultData = uploadData;//파일명 저장
+								        }//success
+								    });//ajax
+								}//uploadFile()
+								
+								function sttBtn(){
+									$.ajax({
+										url : '/sttservice',
+										data : {"file": upload_resultData},
+										dataType : 'json',
+										type : 'post',
+										success : function(sttData){
+											console.log(sttData);
+											$("#txtArea").val(JSON.stringify(sttData.text));
+											stt_resultData = JSON.stringify(sttData.text);//stt결과 저장
+										}//success			
+									})//ajax
+								}//sttBtn()
+								
+								function papagoBtn(){
+									$.ajax({
+										url : '/papagoservice',
+										data : {"text": stt_resultData},
+										dataType : 'json',
+										type : 'post',
+										success : function(result){
+											console.log(result);
+											$("#txtArea2").val(JSON.stringify(result.message.result.translatedText));
+										}//success			
+									})//ajax
+								}//sttBtn()
+								
+							</script>
+							
+							<div class="container" id="STTservice" align="center">							
+								<div id="content">
+									<div id="uploadPart">
+									    <input type="file" id="file1" name="file1"> 
+									    <button id="btn_submit" onclick="uploadFile()">Upload</button><br><br>
+									</div>
+									<div id="sttPart" class="txtarea">
+										<textarea cols="30" rows="10" id="txtArea"></textarea><br><br>
+										<button id="sttBtn" onclick="sttBtn()">Convert to Text</button><br><br>
+									</div>
+								
+									<div id="papagoPart" class="txtarea">
+										<textarea cols="30" rows="10" id="txtArea2"></textarea><br><br>
+										<button id="sttBtn" onclick="papagoBtn()">translate to english</button>
+									</div>
+								</div>
+							
+							</div>
                         </div>
                     </div>
-                     <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <div class="mb-2"><i class="bi-globe fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Ready to Publish</h3>
-                            <p class="text-muted mb-0">You can use this design as is, or you can make changes!</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <div class="mb-2"><i class="bi-heart fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Made with Love</h3>
-                            <p class="text-muted mb-0">Is it really open source if it's not made with love?</p>
-                        </div>
-                    </div> 
-                </div>-->
+  
+                </div>
             </div>
         </section>
         <!-- Portfolio-->
@@ -323,7 +350,7 @@
             <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2021 - Company Name</div></div>
         </footer>
         <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- SimpleLightbox plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
         <!-- Core theme JS-->
@@ -334,33 +361,4 @@
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
-<%-- 	<body>
-	<% 
-		String languages[] = {"Kor", "Jpn", "Chn", "Eng"};
-		String languagenames[] = {"한국어", "일본어", "중국어", "영어"};
-	%>
-	
-	<form action="/speech">
-		언어선택 : <br>
-		<% for(int i = 0; i< languages.length; i++){ %>
-			<input type=radio name="lang" value= <%=languages[i]%> > <%=languagenames[i] %><br>
-		<%} %>
-		
-		<select name="image">
-		<%	String[] filelist = (String[])request.getAttribute("filelist"); 
-			for(int i=0; i<filelist.length; i++){
-				String onefile = filelist[i];
-				String[] onefile_split = onefile.split("[.]");
-				String fileext = onefile_split[(onefile_split.length)-1];
-				if(fileext.equals("mp3")){
-		%>
-				<option value="<%=onefile %>"> <%=onefile %></option>
-		<%		}//if end
-			}//for end
-		%>
-		</select>
-		<input type="submit" value="텍스트로 변환해 주세요">
-	</form>
-	</body> --%>
-
 </html>
