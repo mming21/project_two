@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+<!-- mybatis db 연결정보 세팅 파일 -->
+<configuration>
+
+<!-- spring boot //application.properties에서 설정하고 있음.간소화-->
+	<typeAliases> 
+	<typeAlias type="contents.contentsVO" alias="contvo"/>
+	</typeAliases>
+
+<!-- spring legacy - mvc에서 조건 3가지 모두 필수!
+	<environments default="">연결데이터베이스 정보</environments>
+	<typeAliases> </typeAliases>
+	<mappers> </mappers>
+-->
+
+</configuration>
