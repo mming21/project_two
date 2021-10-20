@@ -13,6 +13,13 @@
 	background-color: gray;
 	float : left;
 }
+.button{
+  padding: 6px 10px;
+  background-color:#FF6600;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
 
 
 </style>
@@ -82,17 +89,18 @@
 	
 	<div id="content">
 		<div id="uploadPart">
-		    <input type="file" id="file1" name="file1" title = "Choose a mp3 file"> 
-		    <button id="btn_submit" onclick="uploadFile()">전송</button>
+		    <input type="file" id="file1" style="display: none;">
+		    <label class="button" for="file1">Upload</label>
+		    <button id="btn_submit" class="button" onclick="uploadFile()">전송</button><br><br>
 		</div>
 		<div id="sttPart" class="txtarea">
 			<textarea cols="50" rows="30" id="txtArea"></textarea>
-			<button id="sttBtn" onclick="sttBtn()">텍스트 변환</button>
+			<button id="sttBtn" class="button" onclick="sttBtn()">텍스트 변환</button>
 		</div>
 	
 		<div id="papagoPart" class="txtarea">
 			<textarea cols="50" rows="30" id="txtArea2"></textarea>
-			<button id="sttBtn" onclick="papagoBtn()">영어 번역</button>
+			<button id="sttBtn" class="button" onclick="papagoBtn()">영어 번역</button>
 		</div>
 	</div>
 

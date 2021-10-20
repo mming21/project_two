@@ -2,56 +2,49 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="mybatis.EmpDAO" >
+<mapper namespace="member.MemberDAO" >
 
-<select id="emplist" resultType="empVO">
- select * from employees
+<select id="memberone" resultType="memberVO" parameterType="String"> 
+select * from member where id=#{id}
 </select>
 
-<select id="empone" resultType="empVO" parameterType="int"> 
-select * from employees where employee_id=#{id}
+<select id="idCheck" parameterType="String" resultType="Integer">
+select count(*) from member where id = #{id}
 </select>
 
-<insert id="insertemp" parameterType="empVO" >
-insert into employees(employee_id, first_name, last_name, email, phone_number, job_id , hire_date) 
-values( #{employee_id}, #{first_name}, #{last_name},#{email},#{phone_number},#{job_id} , sysdate )
+<select id="pwCheck" parameterType="memberVO" resultType="Integer">
+select count(*) from member where id=#{id} and pw=#{pw}
+</select>
+
+<select id="memberlogin" resultType="String" parameterType="memberVO"> 
+select nickname from member where id=#{id} and pw=#{pw}
+</select>
+
+<select id="viewmember" resultType="memberVO"> 
+select id, name, email, phone_number, nickname from member where id=#{id} and pw=#{pw}
+</select>
+
+<insert id="insertmember" parameterType="memberVO" >
+insert into member(id, pw, name, email, phone_number, nickname) 
+values( #{id}, #{pw}, #{name},#{email},#{phone_number},#{nickname})
 </insert>
 
-<update id="updateemp" parameterType="empVO">
-update employees
-set last_name = #{last_name} ,  department_id=#{department_id}
-where employee_id= #{employee_id}
+<select id="memberlist" resultType="memberVO">
+select * from member
+</select>
+
+<update id="updatemember" parameterType="memberVO">
+update member
+set pw = #{pw} , email=#{email}, phone_number=#{phone_number}, nickname=#{nickname}
+where id=#{id}
+
 </update>
 
-<delete id="deleteemp" parameterType="String">
-delete employees where last_name like #{name}
+<delete id="deletemember" parameterType="String">
+delete member where id=#{id}
 </delete>
 
-<select id="countemp" resultType="int">
-select count(*) from employees
-</select>
-
-<select id="empdeptlist"  resultType="empVO" parameterType="int[]">
- select * from employees where department_id in 
- 	<foreach collection="array" item="d_list" open="(" close=")" separator=","  >
- 		#{d_list}
- 	</foreach>
-</select>
-
 </mapper>
-
-
-<!--
-int[]={150, 200}
-
-select * from employees
-where employee_id between  	? and ?
-<foreach collection="array" item="d_list"  separator="and"  >
- 		#{d_list}
- 	</foreach>
-
--->
-
 
 
 

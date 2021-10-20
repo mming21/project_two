@@ -63,7 +63,7 @@ function playBtn(){
 		<%} %>
 		
 		<button id=playBtn onclick="playBtn()">Play</button> <br><br>
-	</div>
+	</div> 
 	
 	<div id="ttsResult">
 	
