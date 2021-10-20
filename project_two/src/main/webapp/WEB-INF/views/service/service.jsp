@@ -59,7 +59,7 @@ function playBtn(){
 		
 		Select voice play speed :
 		<% for(int i=0; i<speed.length; i++){ %>
-		<input id="speed" type=radio name="speedvalue" value=<%=speed[i] %> checked="checked"> <%=speedinform[i]%>
+		<input type=radio id="speed" name="speedvalue" value=<%=speed[i] %> checked="checked"> <%=speedinform[i]%>
 		<%} %>
 		
 		<button id=playBtn onclick="playBtn()">Play</button> <br><br>

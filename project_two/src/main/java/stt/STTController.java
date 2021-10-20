@@ -16,7 +16,7 @@ public class STTController {
 	
 	@RequestMapping("stt")
 	public String serviceForm() {
-		return "/stt_csr/sttinput";
+		return "/stt/sttinput";
 	}
 	
 	//upload파일 저장 후 파일명 전달
