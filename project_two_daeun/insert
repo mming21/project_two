@@ -1,0 +1,7 @@
+
+select * from CONTENT_INFO
+
+insert into CONTENT_INFO values(1, 'cha cha cha_IMAGE', 'Famous saying', 'GaetVillage Cha Cha Cha', 
+'현실주의 치과의사 윤혜진과 만능 백수 홍반장이 짠내 사람내음 가득한 바닷마을 ‘공진’에서 벌이는 티키타카 힐링 로맨스', 
+'Kim Seonho Shin Min ah', '서울깍쟁이', '시골 사람이 서울 사람의 까다롭고 인색함을 놀림조로 이르는 말.'
+);
