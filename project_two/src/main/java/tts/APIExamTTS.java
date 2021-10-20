@@ -13,13 +13,13 @@ import java.util.Date;
 
 public class APIExamTTS {
 
- public static void main(double speed) {
+ public static void main(String[] args) {
 	 String clientId = "1ha8ur3dox";//애플리케이션 클라이언트 아이디값";
      String clientSecret = "jp0VCunkagZpYP8S9esAMFJIYQxnA5NtX17ft61A";//애플리케이션 클라이언트 시크릿값";
 
      try {
     	 //텍스트 파일 가져와야함   "플젝" 자리에 
-         String text = URLEncoder.encode("프로젝트", "UTF-8"); //
+         String text = URLEncoder.encode("오늘 날씨 어떄?", "UTF-8"); //
          String apiURL = "https://naveropenapi.apigw.ntruss.com/tts-premium/v1/tts";
          URL url = new URL(apiURL);
          HttpURLConnection con = (HttpURLConnection)url.openConnection();

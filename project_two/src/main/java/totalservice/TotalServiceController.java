@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import stt.STTService;
 import tts.ProjectTtsService;
+import tts.TTSService;
 
 @Controller
 public class TotalServiceController {
@@ -22,32 +23,21 @@ public class TotalServiceController {
 	STTService sttservice;
 	@Autowired
 	ProjectTtsService ttsservice;
+	@Autowired
+	TTSService ttsservice2;
 	
 	@RequestMapping("service")
 	public String serviceForm() {
 		return "/service/service";
 	}
 	
-	@RequestMapping(value="/ttsinput2", method=RequestMethod.POST)
-	public ModelAndView ttsoutput(String out, double speed) throws IOException  { //String text
-		ModelAndView mv= new ModelAndView();
-		
-		System.out.println(out);
+	@RequestMapping(value="/service2", method=RequestMethod.POST)
+	@ResponseBody
+	public String ttsoutput(String input, double speed) throws IOException{ //String text
 		String mp3file="";
-		mp3file=ttsservice.main(out,speed); 
+		mp3file = ttsservice2.test(input,speed); 
 		System.out.println(mp3file);
-		mv.addObject("ttsoutput",mp3file);
-		mv.addObject("out",out);
-		mv.setViewName("/service/service");
-		return mv;		
-		/*
-		String mp3file="";
-		mp3file=ttsservice.main(text);
-		//System.out.println(mp3file);
-		mv.addObject("ttsoutput",mp3file);
-		mv.setViewName("/tts/ttsoutput");
-		return mv;
-		*/
+		return mp3file;	
 	}
 
 	

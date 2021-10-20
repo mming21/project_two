@@ -103,7 +103,7 @@
 								
 								Select voice play speed :
 								<% for(int i=0; i<speed.length; i++){ %>
-								<input type=radio name="speed" value=<%=speed[i]   %>> <%=speedinform[i]%>
+								<input type=radio name="speed" value=<%=speed[i] %> checked="checked"> <%=speedinform[i]%>
 								<%} %>
 								
 								<input type=submit value="Play"> <br><br>
@@ -123,7 +123,7 @@
                         <div class="mt-5">
                             <div class="mb-2"><i class="bi-laptop fs-1 text-primary"></i></div>
                             <h3 class="h4 mb-2">Sound To Text Service</h3>
-                            <p class="text-muted mb-0">upload your text file.</p>
+                            <p class="text-muted mb-0">Upload your text file.</p>
                             <script>	
 							 	var txtArea = document.getElementById("txtArea");
 								
@@ -181,7 +181,7 @@
 							<div class="container" id="STTservice" align="center">							
 								<div id="content">
 									<div id="uploadPart">
-									    <input type="file" id="file1" name="file1"> 
+									    <input type="file" id="file1" name="file1" value="select"> 
 									    <button id="btn_submit" onclick="uploadFile()">Upload</button><br><br>
 									</div>
 									<div id="sttPart" class="txtarea">
@@ -191,7 +191,7 @@
 								
 									<div id="papagoPart" class="txtarea">
 										<textarea cols="30" rows="10" id="txtArea2"></textarea><br><br>
-										<button id="sttBtn" onclick="papagoBtn()">translate to english</button>
+										<button id="sttBtn" onclick="papagoBtn()">Translate to English</button>
 									</div>
 								</div>
 							

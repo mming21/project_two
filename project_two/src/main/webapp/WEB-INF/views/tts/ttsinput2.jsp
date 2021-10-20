@@ -20,13 +20,7 @@
 	height : 1000px;
 	border: 2px solid #09c;
 }
-#free{
-	background : gray;
-	float: left;
-	width: 200px;
-	height : 1000px;
-	border: 2px solid #09c;
-}
+
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -64,6 +58,7 @@ String speedinform[]={"0.5배속", "표준속도"};
 
 <input type=submit value="음성듣기"> <br><br>
 </form>
+
 <audio id="audio" src="/naverimages/${ttsoutput}" controls="controls"></audio><br><br>
 <script>
 var mp3 = document.getElementById("mp3"); //${mp3file} document.getElementById("mp3");

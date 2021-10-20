@@ -21,7 +21,6 @@ values( #{employee_id}, #{first_name}, #{last_name},#{email},#{phone_number},#{j
 update employees
 set last_name = #{last_name} ,  department_id=#{department_id}
 where employee_id= #{employee_id}
-
 </update>
 
 <delete id="deleteemp" parameterType="String">

@@ -32,7 +32,7 @@ public class ProjectTtsController {
 	@RequestMapping("/ttsinput")
 	public ModelAndView ttsinput() throws IOException {	
 		ModelAndView mv = new ModelAndView();		
-		mv.setViewName("/stt_csr/total");
+		mv.setViewName("/total/total");
 		return mv;
 	}	
 	
@@ -45,7 +45,7 @@ public class ProjectTtsController {
 		System.out.println(mp3file);
 		mv.addObject("ttsoutput",mp3file);
 		mv.addObject("out",out);
-		mv.setViewName("/stt_csr/total");
+		mv.setViewName("/total/total");
 		return mv;
 		
 		/*

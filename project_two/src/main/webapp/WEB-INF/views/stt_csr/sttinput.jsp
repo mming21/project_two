@@ -69,8 +69,8 @@
 				console.log(result);
 				$("#txtArea2").val(JSON.stringify(result.message.result.translatedText));
 			}//success			
-		})//ajax
-	}//sttBtn()
+		});//ajax
+	}//papagoBtn()
 	
 </script>
 
@@ -82,7 +82,7 @@
 	
 	<div id="content">
 		<div id="uploadPart">
-		    <input type="file" id="file1" name="file1"> 
+		    <input type="file" id="file1" name="file1" title = "Choose a mp3 file"> 
 		    <button id="btn_submit" onclick="uploadFile()">전송</button>
 		</div>
 		<div id="sttPart" class="txtarea">
