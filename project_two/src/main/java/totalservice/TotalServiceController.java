@@ -16,7 +16,7 @@ import tts.TTSService;
 @Controller
 public class TotalServiceController {
 	
-	@RequestMapping("service")
+	@RequestMapping("/service")
 	public String serviceForm() {
 		return "/total/total";
 	}

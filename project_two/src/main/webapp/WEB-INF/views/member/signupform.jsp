@@ -11,7 +11,6 @@
   background-image: linear-gradient(90deg, red, orange, yellow, green, blue, navy, purple);
   -webkit-background-clip: text;
   color: transparent;
-
   font-weight: bold;
   font-size: 40px;
 }
@@ -55,13 +54,11 @@ function checkValue()
         return false;
     }
 }
-
 // 취소 버튼 클릭시 로그인 화면으로 이동
 function goLoginForm() {
     location.href="main";
 }
 //출처: https://all-record.tistory.com/115 [세상의 모든 기록]
-
 function idCheck() {
 	var id=$("#id").val();
 	
@@ -80,14 +77,10 @@ function idCheck() {
 		error:function(e){alert("error")}
 	});
 }
-
-
 /*출처: https://yulfsong.tistory.com/67 [Code Writer]*/
-
 /*
 $(document).ready(function(){
 	function email(){
-
 	//var email = document.userInfo.email1.value+"@"+$(domains option:selected).val;
 	var email = document.userInfo.email1.value+"@"+document.userInfo.email2.value;
 	$.ajax({

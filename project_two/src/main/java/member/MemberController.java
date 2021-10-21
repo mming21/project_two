@@ -1,5 +1,6 @@
 package member;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +23,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class MemberController {
 	@Autowired
 	MemberService service;
-	//@Autowired
+	//@Autowiredt
 	//HttpSession session;
 	
 	//회원가입 get
@@ -134,9 +135,10 @@ public class MemberController {
 	//회원탈퇴
 	@RequestMapping("/deletemember")
 	@ResponseBody
-	public String deleteMember(String id) {
+	public String deleteMember(String id) throws Exception {
 		service.deleteMember(id);
-		return "/login/main";
+		String msg="success";
+		return msg;
 	}
 	
 	//마이페이지
@@ -145,8 +147,6 @@ public class MemberController {
 		return "/mypage/pwcheck";
 	}
 	
-	//관리자
-	
-		
+	//관리자	
 
 }//controller end

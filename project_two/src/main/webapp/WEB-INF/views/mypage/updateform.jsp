@@ -18,31 +18,29 @@ function checkValue()
         return false;
     }
 }
-
+//회원탈퇴
 function deleteMember(){
- var id=$("#id").val();
-	
+	var id=$("#id").val();
 	$.ajax({
 		url:'/deletemember',
 		type:'post',
 		data:{'id': id},
-		dataType:'json',
-		success: function(){
-			if(true){
-				alert("탈퇴되셨습니다.");
-			}else{
-				alert("다시 진행해주십시오.")
-			}
+		
+		//dataType:'json',
+		success: function(msg){
+			alert("success");
 		},//success
-		error:function(e){alert("error")}
+		error:function(e){alert("error")},
+		//complete:function(){alert("완료 ")}
 	});
+	location.href = "main";
 };
 </script>
 <body>
 <h2>${sessionScope.nickname } 회원님 안녕하세요!</h2>
 <h4>회원정보 수정</h4>
 <form action="updatemember" name="updateform" method="post">
-	<input type="hidden" name="id" value="${sessionScope.id }">
+	<input id="id" type="hidden" name="id" value="${sessionScope.id }">
 	PW <br><input type="password" name="pw" maxlength="4" placeholder="4-digit" value="${sessionScope.pw }"><br><br>
 	PW CHECK <br><input id = "pwchk" type="password" name="pwchk" maxlength="4" value="${sessionScope.pw }"><br><br>
 	

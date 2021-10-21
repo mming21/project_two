@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.jasper.tagplugins.jstl.core.If;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,8 +46,10 @@ public class MemberServiceImpl implements MemberService {
 			session.setAttribute("name", vo2.getName());
 			session.setAttribute("fullemail", vo2);
 			if(vo2.getEmail().contains("@")) {
-				session.setAttribute("email", vo2.getEmail().split(",")[0]);
-				session.setAttribute("domain", vo2.getEmail().split(",")[2]);				
+				if(vo2.getEmail().split(",").length>2) {
+					session.setAttribute("email", vo2.getEmail().split(",")[0]);
+					session.setAttribute("domain", vo2.getEmail().split(",")[2]);	
+				}			
 			}else {
 				session.setAttribute("email", vo2.getEmail());
 			}
