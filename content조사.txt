@@ -1,0 +1,71 @@
+1. 갯마을 차차차
+이미지 url= https://file.mk.co.kr/meet/neds/2021/08/image_readtop_2021_774018_16285690364746521.jpg
+명언 url=
+https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTEwMTBfMjIg%2FMDAxNjMzODQ1Mjc1OTIz.EJ8FETkQLVbZtxqRFA1hPH-PDr_j9ZUkUG_7-EFaoY0g.Jstnc8bXg2Rp-HAxxSoTesg3jV2Gn0wWZZnQGpzL70gg.JPEG.solasolapooh%2F%25B4%25D9%25BF%25EE%25B7%25CE%25B5%25E5%25C6%25C4%25C0%25CF%25A3%25AD28.jpg
+
+insert into CONTENT_INFO values
+(1,
+'Drama', 
+'There is no life without rain showers. At times like this, even if you use an umbrella, it gets wet. At times like this, you just get hit like "I don''t know." (소나기 없는 인생이 어딨겠어. 이럴때는 어차피 우산을 써도 젖어. 이럴땐, 아-모르겠다하고 그냥 확 맞아버리는거야.) ', 
+'GaetVillage Cha Cha Cha', 
+'A tiki-taka healing romance between realist dentist Yoon Hye-jin and all-around unemployed Hong Ban-jang at Gongjin, a sea village full of salty human scent. (현실주의 치과의사 윤혜진과 만능 백수 홍반장이 짠내 사람내음 가득한 바닷마을 ‘공진’에서 벌이는 티키타카 힐링 로맨스.)',
+'Kim Seonho(Hong Dusik) Shin Min ah(Yoon Hyejin)', 
+'the shrewd Seoulite(서울깍쟁이): ', 
+'Rural people make fun of Seoul people is picky and stingy(시골 사람이 서울 사람의 까다롭고 인색함을 놀림조로 이르는 말)',
+'https://file.mk.co.kr/meet/neds/2021/08/image_readtop_2021_774018_16285690364746521.jpg',
+'https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTEwMTBfMjIg%2FMDAxNjMzODQ1Mjc1OTIz.EJ8FETkQLVbZtxqRFA1hPH-PDr_j9ZUkUG_7-EFaoY0g.Jstnc8bXg2Rp-HAxxSoTesg3jV2Gn0wWZZnQGpzL70gg.JPEG.solasolapooh%2F%25B4%25D9%25BF%25EE%25B7%25CE%25B5%25E5%25C6%25C4%25C0%25CF%25A3%25AD28.jpg'
+);
+
+============================================================
+2. sixsence2
+이미지 url= 
+https://thumb.mt.co.kr/06/2021/06/2021060209458263404_1.jpg
+
+명언url= https://images.chosun.com/resizer/LcB4kEjv3L8cqgXefBgXMwAxvEc=/444x592/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/OLJE6BT7PACFJYJAJ7LZSJL4F4.jpg
+
+insert into content_info values
+(2, 
+'Variety Show', 
+'절대 현혹되지 마라', 
+'SixSence2', 
+'가짜는 오직 하나! 여섯 명의 출연진이 진짜 속에 숨어 있는 진짜 보다 더 진짜 같은 가짜를 찾는 예측 불허 육감 현혹 버라이어티', 
+'Yoo Jaesuk(Show host and Comedian) Oh Nara(Actor) Jeon Somin(Actor) Mi Ju(singer:Lovelyz) Lee Sangyeop(Actor) Jessie(Rapper)', 
+'미친텐션 : crazy tension', 
+'신이나고 흥이 난 정도가 높다: The degree of excitement and excitement is high',
+'https://thumb.mt.co.kr/06/2021/06/2021060209458263404_1.jpg',
+'https://images.chosun.com/resizer/LcB4kEjv3L8cqgXefBgXMwAxvEc=/444x592/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/OLJE6BT7PACFJYJAJ7LZSJL4F4.jpg'
+);
+
+=============================================================
+3. SQUID GAME
+이미지 url= 
+http://www.topdaily.kr/news/photo/202108/114112_88137_419.jpg
+명언url= 
+https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA5MjRfNjEg%2FMDAxNjMyNDYwMDQ1Mzg2.CE5LoQTFsj7A3NL_3crgZ_yDtofKphqr_j0CBGQCTMQg.UK2QiVDTNj9MWGB24tlY9oXk3Hrx3_9lUNIDlXClmQ8g.JPEG.zangelartist%2F1632458385870%25A3%25AD2.jpg&type=sc960_832
+
+insert into content_info values
+(3, 'Series Movie', '원래 사람은 믿을만해서 믿는게 아냐. 기댈데가 없으니까 믿는거지.', 'SQUID GAME', '456억 원의 상금이 걸린 의문의 서바이벌에 참가한 사람들이 최후의 승자가 되기 위해 목숨을 걸고 극한의 게임에 도전하는 이야기를 담은 넷플릭스 시리즈', 'Lee Jeongjae(Gihun) Park Haesu(Sangu) Oh Yeongsu(Llnam) Wie Hajun(Junho) Jung Hoyeon(Saebyeok)', 
+'깐부: Gganbu', '구슬치기나 딱지치기 등의 놀이를 할때 내것 또는 네것의 구분을 하지않고 새끼 손가락을 걸면서 함께하는 동지나 짝꿍, 원팀(순우리말): When we play marbles or slap-match, we hang our little fingers and play comrades or best friend.',
+'http://www.topdaily.kr/news/photo/202108/114112_88137_419.jpg',
+'https://blogfiles.pstatic.net/MjAyMTA5MjRfNjEg/MDAxNjMyNDYwMDQ1Mzg2.CE5LoQTFsj7A3NL_3crgZ_yDtofKphqr_j0CBGQCTMQg.UK2QiVDTNj9MWGB24tlY9oXk3Hrx3_9lUNIDlXClmQ8g.JPEG.zangelartist/1632458385870%EF%BC%8D2.jpg'
+);
+
+=============================================================
+4. STAYC-ASAP
+이미지 url= 
+https://i1.sndcdn.com/artworks-aPz0hFFdjy5Y5d9R-PA4mtg-t500x500.jpg
+명언 url=
+https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA0MDFfMTgw%2FMDAxNjE3MjI4ODIyNDYz.AD-_M2Frjda1OJScwyd_SuGg-veiSoBdT7flfbtg6Uog.5Od4daQ4LlR_dWmlaQSm6jB0YzIxNEnFQppd0p8EDc0g.JPEG.rlatldn1324%2FIMG%25A3%25DF20210401%25A3%25DF071252.jpg&type=sc960_832
+
+insert into content_info values
+(4,
+'K-POP', 
+'눈앞에 눈앞에 나타나 줘. 실제론 어떤 느낌인 걸까. A beautiful a beautiful love 한 번도 느껴본 적 없는 걸. So where you at 기다리고 있는데  ASAP', 
+'STAYC-ASAP', 
+'가슴 속에 완벽하게 그려 놓은 이상형이 ASAP(As Soon As Possible)하게 나타나 줬으면 하는 마음을 톡톡 튀고 재치 있게 풀어낸 틴프레시 곡', 
+'Sumin, Sieun, ISA, Seeun, Yoon J', 
+'콧대 높대: high nose/ 내 반쪽: My half', 
+'도도하다: behave haughtily/ 내 사랑: my cuty and lover',
+'https://i1.sndcdn.com/artworks-aPz0hFFdjy5Y5d9R-PA4mtg-t500x500.jpg',
+'https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA0MDFfMTgw%2FMDAxNjE3MjI4ODIyNDYz.AD-_M2Frjda1OJScwyd_SuGg-veiSoBdT7flfbtg6Uog.5Od4daQ4LlR_dWmlaQSm6jB0YzIxNEnFQppd0p8EDc0g.JPEG.rlatldn1324%2FIMG%25A3%25DF20210401%25A3%25DF071252.jpg&type=sc960_832'
+);
