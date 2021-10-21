@@ -1,0 +1,55 @@
+
+insert into CONTENT_INFO values
+(1,
+'Drama', 
+'There is no life without rain showers. At times like this, even if you use an umbrella, it gets wet. At times like this, you just get hit like "I don''t know." (소나기 없는 인생이 어딨겠어. 이럴때는 어차피 우산을 써도 젖어. 이럴땐, 아-모르겠다하고 그냥 확 맞아버리는거야.) ', 
+'GaetVillage Cha Cha Cha', 
+'A tiki-taka healing romance between realist dentist Yoon Hye-jin and all-around unemployed Hong Ban-jang at Gongjin, a sea village full of salty human scent. (현실주의 치과의사 윤혜진과 만능 백수 홍반장이 짠내 사람내음 가득한 바닷마을 ‘공진’에서 벌이는 티키타카 힐링 로맨스.)',
+'Kim Seonho(Hong Dusik) Shin Min ah(Yoon Hyejin)', 
+'the shrewd Seoulite(서울깍쟁이): ', 
+'Rural people make fun of Seoul people is picky and stingy(시골 사람이 서울 사람의 까다롭고 인색함을 놀림조로 이르는 말)',
+'https://file.mk.co.kr/meet/neds/2021/08/image_readtop_2021_774018_16285690364746521.jpg',
+'https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTEwMTBfMjIg%2FMDAxNjMzODQ1Mjc1OTIz.EJ8FETkQLVbZtxqRFA1hPH-PDr_j9ZUkUG_7-EFaoY0g.Jstnc8bXg2Rp-HAxxSoTesg3jV2Gn0wWZZnQGpzL70gg.JPEG.solasolapooh%2F%25B4%25D9%25BF%25EE%25B7%25CE%25B5%25E5%25C6%25C4%25C0%25CF%25A3%25AD28.jpg'
+);
+
+insert into content_info values
+(2, 
+'Variety Show', 
+'Don''t be misled! (절대 현혹되지 마라!)', 
+'SixSence2', 
+'There''s only one fake! Unpredictable sixth sense of reality variety where six cast members find a fake that is more real than a real one hidden inside. (가짜는 오직 하나! 여섯 명의 출연진이 진짜 속에 숨어 있는 진짜 보다 더 진짜 같은 가짜를 찾는 예측 불허 육감 현혹 버라이어티)', 
+'Yoo Jaesuk(Show host and Comedian) Oh Nara(Actor) Jeon Somin(Actor) Mi Ju(singer:Lovelyz) Lee Sangyeop(Actor) Jessie(Rapper)', 
+'crazy tension(미친 텐션): ', 
+'The degree of excitement and excitement is high(신이나고 흥이 난 정도가 높다)',
+'https://thumb.mt.co.kr/06/2021/06/2021060209458263404_1.jpg',
+'https://images.chosun.com/resizer/LcB4kEjv3L8cqgXefBgXMwAxvEc=/444x592/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/OLJE6BT7PACFJYJAJ7LZSJL4F4.jpg'
+);
+
+insert into content_info values
+(3, 
+'Series Movie', 
+'People are not supposed to believe because they are reliable. I trust you because I have no place to lean on.(원래 사람은 믿을만해서 믿는게 아냐. 기댈데가 없으니까 믿는거지.)', 
+'SQUID GAME', 
+'Netflix series tells the story of people who participated in a mysterious survival with $38.77 million in prize money risking their lives to become the final winner.(456억 원의 상금이 걸린 의문의 서바이벌에 참가한 사람들이 최후의 승자가 되기 위해 목숨을 걸고 극한의 게임에 도전하는 이야기를 담은 넷플릭스 시리즈)', 
+'Lee Jeongjae(Gihun) Park Haesu(Sangu) Oh Yeongsu(Llnam) Wie Hajun(Junho) Jung Hoyeon(Saebyeok)', 
+'Gganbu(깐부): ', 
+'When we play marbles or slap-match, we hang our little fingers and play comrades or best friend. (구슬치기나 딱지치기 등의 놀이를 할때 내것 또는 네것의 구분을 하지않고 새끼 손가락을 걸면서 함께하는 동지나 짝꿍)',
+'http://www.topdaily.kr/news/photo/202108/114112_88137_419.jpg',
+'https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA5MjRfNjEg%2FMDAxNjMyNDYwMDQ1Mzg2.CE5LoQTFsj7A3NL_3crgZ_yDtofKphqr_j0CBGQCTMQg.UK2QiVDTNj9MWGB24tlY9oXk3Hrx3_9lUNIDlXClmQ8g.JPEG.zangelartist%2F1632458385870%25A3%25AD2.jpg&type=sc960_832'
+);
+
+
+insert into content_info values
+(4,
+'K-POP', 
+'Show up in front of your eyes. How does it actually feel? A beautiful a beautiful love. I''ve never felt before. So where you at, I''m waiting for. ASAP(눈앞에 눈앞에 나타나 줘. 실제론 어떤 느낌인 걸까. A beautiful a beautiful love 한 번도 느껴본 적 없는 걸. So where you at 기다리고 있는데  ASAP)', 
+'STAYC-ASAP', 
+'ASAP(As Soon As Possible) It''s a teen fresh song that expresses the desire for a perfect ideal type to appear in your heart. (가슴 속에 완벽하게 그려 놓은 이상형이 ASAP(As Soon As Possible)하게 나타나 줬으면 하는 마음을 톡톡 튀고 재치 있게 풀어낸 틴프레시 곡)', 
+'Sumin, Sieun, ISA, Seeun, Yoon, J', 
+'high nose(콧대 높대)/ My half(내 반쪽): ', 
+'behave haughtily(도도하다)/ my cuty and lover(내사랑)',
+'https://i1.sndcdn.com/artworks-aPz0hFFdjy5Y5d9R-PA4mtg-t500x500.jpg',
+'https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA0MDFfMTgw%2FMDAxNjE3MjI4ODIyNDYz.AD-_M2Frjda1OJScwyd_SuGg-veiSoBdT7flfbtg6Uog.5Od4daQ4LlR_dWmlaQSm6jB0YzIxNEnFQppd0p8EDc0g.JPEG.rlatldn1324%2FIMG%25A3%25DF20210401%25A3%25DF071252.jpg&type=sc960_832'
+);
+
+select * from CONTENT_INFO
