@@ -2,11 +2,13 @@ package totalservice;
 
 import java.io.IOException;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import stt.STTService;
 import tts.TTSService;
@@ -14,25 +16,18 @@ import tts.TTSService;
 @Controller
 public class TotalServiceController {
 	
-	@Autowired
-	STTService sttservice;
-
-	@Autowired
-	TTSService ttsservice2;
-	
 	@RequestMapping("service")
 	public String serviceForm() {
-		return "/service/service";
+		return "/total/total";
 	}
-	
-	@RequestMapping(value="/service2", method=RequestMethod.POST)
-	@ResponseBody
-	public String ttsoutput(String input, double speed) throws IOException{ //String text
-		String mp3file="";
-		mp3file = ttsservice2.test(input,speed); 
-		System.out.println(mp3file);
-		return mp3file;	
-	}
+//	
+//	@RequestMapping(value="/service2", method=RequestMethod.POST)
+//	@ResponseBody
+//	public String ttsoutput(String input, int speed) throws IOException{ //String text
+//		String mp3file = ttsservice.test(input, speed);
+//		System.out.println(mp3file);
+//		return mp3file;
+//	}
 
 	
 //	//upload파일 저장 후 파일명 전달

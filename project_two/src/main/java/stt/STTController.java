@@ -14,7 +14,7 @@ public class STTController {
 	@Autowired
 	STTService sttservice;
 	
-	@RequestMapping("stt")
+	@RequestMapping("/stt")
 	public String serviceForm() {
 		return "/stt/sttinput";
 	}
@@ -28,18 +28,13 @@ public class STTController {
 		String savepath = "C:/Users/JS/Desktop/";
 		File serverfile1 = new File(savepath + filename1);//파일객체 생성
 		file1.transferTo(serverfile1);//원하는위치에 파일 생성
-		return filename1; //확장자포함 파일명 얻고싶은 경우
-		//확장자 뺀 파일명만 얻고 싶은경우
-//		String[] fileResult = filename1.split("[.]");
-//		System.out.println(fileResult[0]);
-//		return fileResult[0]; 
+		return filename1;
     }
     
     //sttservice 결과 출력
     @RequestMapping("/sttservice")
     @ResponseBody
-    public String sttService(String file) {
-    	
+    public String sttService(String file) {    	
     	String response = sttservice.test(file); //test함수 결과는 {"text":"결과"} 형태로 출력된다.    	
 		JSONObject obj = new JSONObject(response);
 		String text = (String)obj.get("text");

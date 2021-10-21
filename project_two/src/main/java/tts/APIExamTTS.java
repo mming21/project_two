@@ -49,7 +49,8 @@ public class APIExamTTS {
              while ((read =is.read(bytes)) != -1) {
                  outputStream.write(bytes, 0, read);
              }
-             is.close();             
+             is.close();
+             System.out.println();
              
          } else {  // 오류 발생
              br = new BufferedReader(new InputStreamReader(con.getErrorStream()));

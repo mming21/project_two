@@ -7,11 +7,10 @@ import org.springframework.context.annotation.ComponentScan;
 
 import member.MemberController;
 import member.MemberDAOImpl;
-import service.MemberController2;
 import stt.STTController;
 import totalservice.TotalServiceController;
 import translation.PapagoController;
-import tts.ProjectTtsController;
+import tts.TTSController;
 import upload.UploadController;
 
 @SpringBootApplication
@@ -19,10 +18,9 @@ import upload.UploadController;
 @ComponentScan(basePackageClasses = STTController.class)
 @ComponentScan(basePackageClasses = UploadController.class)
 @ComponentScan(basePackageClasses = PapagoController.class)
-@ComponentScan(basePackageClasses = ProjectTtsController.class)
+@ComponentScan(basePackageClasses = TTSController.class)
 @ComponentScan(basePackageClasses = TotalServiceController.class)
 @ComponentScan(basePackageClasses = MemberController.class)
-@ComponentScan(basePackageClasses = MemberController2.class)
 
 @MapperScan(basePackageClasses = MemberDAOImpl.class)
 public class ProjectTwoApplication {

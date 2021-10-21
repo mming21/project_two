@@ -17,11 +17,12 @@ public class TTSService implements NaverService {
 		return test(input, 0);		
 	}
 	
-	public String test(String input, double speed) {
+	public String test(String input, int speed) {
 		
         String clientId = "l14nl9846c";//애플리케이션 클라이언트 아이디값";
         String clientSecret = "VVeGuwAlvJztUI99JWgHVbeqbwkOmtQEcve3Umd3";//애플리케이션 클라이언트 시크릿값";
         StringBuffer response = new StringBuffer();
+        String result = "";
 
         try {
             String text = URLEncoder.encode(input, "UTF-8"); // 13자
@@ -32,7 +33,7 @@ public class TTSService implements NaverService {
             con.setRequestProperty("X-NCP-APIGW-API-KEY-ID", clientId);
             con.setRequestProperty("X-NCP-APIGW-API-KEY", clientSecret);
             // post request
-            String postParams = "speaker=nara&volume=0&speed="+speed+" &pitch=0&format=mp3&text=" + text;
+            String postParams = "speaker=nara&volume=0&speed="+speed+"&pitch=0&format=mp3&text=" + text;
             con.setDoOutput(true);
             DataOutputStream wr = new DataOutputStream(con.getOutputStream());
             wr.writeBytes(postParams);
@@ -48,6 +49,7 @@ public class TTSService implements NaverService {
                 String tempname = Long.valueOf(new Date().getTime()).toString();
                 File f = new File("C:/Users/JS/Desktop/" + tempname + ".mp3");
                 f.createNewFile();
+                result = f.getName();
                 OutputStream outputStream = new FileOutputStream(f);
                 while ((read =is.read(bytes)) != -1) {
                     outputStream.write(bytes, 0, read);
@@ -65,7 +67,6 @@ public class TTSService implements NaverService {
         } catch (Exception e) {
             System.out.println(e);
         }
-        return response.toString();
+        return result;
     }
-
 }
