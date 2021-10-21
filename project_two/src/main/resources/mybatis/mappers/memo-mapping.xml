@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="memo.MemoDAO" >
+
+<select id="saveMemo" parameterType="memoVO"> <!--parametertype = product.ProductVO->> productVO객체 전달해줄게 -->
+insert into memo_info values( #{id}, #{num}, #{memo_contents1}, #{memo_contents2} )
+</select>
+
+<delete id="deleteMemo" parameterType="String">
+delete memo_info where num=#{num}
+</delete>
+
+</mapper>
+
+
+
+
+
+
+
+
+

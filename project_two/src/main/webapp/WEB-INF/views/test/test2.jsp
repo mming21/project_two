@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h2>${result }</h2>
+<button type="button" onclick="location.href='/main'">main</button>
 
 </body>
 </html>

@@ -21,7 +21,6 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public void insertmember(MemberVO vo) {
 		dao.insertmember(vo);
-
 	}
 
 	@Override

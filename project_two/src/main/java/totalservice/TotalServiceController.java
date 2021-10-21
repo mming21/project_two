@@ -20,6 +20,10 @@ public class TotalServiceController {
 	public String serviceForm() {
 		return "/total/total";
 	}
+	@RequestMapping("/test")
+	public String test() {
+		return "/test/test3";
+	}
 //	
 //	@RequestMapping(value="/service2", method=RequestMethod.POST)
 //	@ResponseBody

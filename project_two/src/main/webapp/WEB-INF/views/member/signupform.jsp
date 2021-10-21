@@ -100,6 +100,14 @@ $(document).ready(function(){
 </script>
 <h1 align="center" class="text-rainbow">JOIN US</h1>
 <div>
+
+	String id;
+	String pw;
+	String name;
+	String email;
+	String phone_number;
+	String nickname;
+	
 <form action="insertmember" method="post" name="userInfo" onsubmit="return checkValue()">
 	ID <br> 
 	<input id ="id" type="text" autofocus="autofocus" name="id" placeholder="10-digit" maxlength="10" style="width:150px; height:15px;">

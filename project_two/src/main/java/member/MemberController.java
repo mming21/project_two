@@ -35,7 +35,8 @@ public class MemberController {
 	//회원가입 post
 	@RequestMapping(value = "/insertmember", method = RequestMethod.POST)
 	public ModelAndView insertMember(MemberVO vo) throws Exception{
-		ModelAndView mv = new ModelAndView(); 
+		ModelAndView mv = new ModelAndView();
+		System.out.println(vo);
 		if(service.memberOne(vo.getId())!=null) {
 			mv.addObject("result", "id 중복입니다. 다른 아이디 입력하세요");
 		}else {

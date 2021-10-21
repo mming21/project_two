@@ -7,6 +7,8 @@ import org.springframework.context.annotation.ComponentScan;
 
 import member.MemberController;
 import member.MemberDAOImpl;
+import memo.MemoController;
+import memo.MemoDAOImpl;
 import stt.STTController;
 import totalservice.TotalServiceController;
 import translation.PapagoController;
@@ -21,8 +23,10 @@ import upload.UploadController;
 @ComponentScan(basePackageClasses = TTSController.class)
 @ComponentScan(basePackageClasses = TotalServiceController.class)
 @ComponentScan(basePackageClasses = MemberController.class)
+@ComponentScan(basePackageClasses = MemoController.class)
 
 @MapperScan(basePackageClasses = MemberDAOImpl.class)
+@MapperScan(basePackageClasses = MemoDAOImpl.class)
 public class ProjectTwoApplication {
 
 	public static void main(String[] args) {
