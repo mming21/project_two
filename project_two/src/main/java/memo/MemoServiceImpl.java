@@ -1,5 +1,7 @@
 package memo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +17,9 @@ public class MemoServiceImpl implements MemoService {
 	}
 
 	@Override
-	public void deleteMemo(String id, String num) {
-		dao.deleteMemo(id, num);
+	public List<MemoVO> memoList(String id, String num) {
+		List<MemoVO> list = dao.memoList(id, num);
+		return list; 
 	}
 
 }

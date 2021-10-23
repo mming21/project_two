@@ -1,4 +1,4 @@
-package memo;
+package study;
 
 import java.util.List;
 
@@ -11,29 +11,29 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class MemoController {	
+public class StudyController {	
 	
 	@Autowired
-	@Qualifier("memoservice")
-	MemoService service;
+	@Qualifier("studyservice")
+	StudyService studyservice;
 	
 	//메모 저장
-	@RequestMapping(value = "/savememo", method = RequestMethod.POST)
-	public ModelAndView saveMemo(MemoVO vo) throws Exception{
+	@RequestMapping(value = "/savestudy", method = RequestMethod.POST)
+	public ModelAndView saveStudy(StudyInfoVO vo) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		service.saveMemo(vo);
+		studyservice.saveStudy(vo);
 		mv.addObject("result", vo);
 		mv.setViewName("/test/test2"); 
 		return mv;
 	}
 	
-	@RequestMapping(value="/memolist")
+	@RequestMapping(value="/studyList")
 	@ResponseBody
-	public ModelAndView memoList(String id, String num) {
-		List<MemoVO> list = service.memoList(id, num);
+	public ModelAndView studyList() {
+		List<StudyInfoVO> list = studyservice.studyList();
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("result", list);
-		mv.setViewName("/test/test2");
+		mv.addObject("studylist", list);
+		mv.setViewName("/test/test1");
 		return mv;
 	}
 	

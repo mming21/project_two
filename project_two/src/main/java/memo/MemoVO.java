@@ -33,7 +33,11 @@ public class MemoVO {
 	}
 	public void setMemo_contents2(String memo_contents2) {
 		this.memo_contents2 = memo_contents2;
-	}	
+	}
 	
+	@Override
+	public String toString() {
+		return ("id = " + id + ", num = " + num + ", memo_contents1 = " + memo_contents1 + ", memo_contents2 = " + memo_contents2) ;
+	}
 	
 }

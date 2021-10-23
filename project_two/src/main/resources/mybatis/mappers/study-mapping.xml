@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="study.StudyDAO" >
+
+<!-- <insert id="saveStudy2" parameterType="studyinfoVO"> parametertype = study.studyinfoVO->> studyinfoVO객체타입으로 전달해줄게
+insert into studyinfo (member_id, study_id, title, study_memo1, study_memo2, study_date) 
+values( #{member_id}, (select max(#{study_id})+1 from studyinfo), #{title}, #{study_memo1}, #{study_memo2}, #{study_date} )
+</insert> -->
+
+<insert id="saveStudy" parameterType="studyinfoVO"> <!--parametertype = study.studyinfoVO->> studyinfoVO객체타입으로 전달해줄게 -->
+insert into studyinfo (member_id, study_id, title, study_memo1, study_memo2, study_date) 
+values( #{member_id}, #{study_id}, #{title}, #{study_memo1}, #{study_memo2}, #{study_date} )
+</insert>
+
+<!-- insert into STUDYINFO values ('test', (select max(study_id)+1 from studyinfo), 'title', 'memo1', 'memo2', 'date')
+ -->
+<select id="studyList" resultType="studyinfoVO">
+select * from studyinfo
+</select>
+
+<!-- sutdy_info 테이블 생성
+create table studyinfo( 
+member_id varchar2(10), 
+study_id number(38) constraint study_id_pk primary key, 
+title varchar2(60) constraint study_title_nn not null,  
+study_memo1 varchar2(4000),
+study_memo2 varchar2(4000), 
+study_date varchar2(300), 
+constraint member_id_fk foreign key(member_id) references member(id) on delete cascade
+)
+ -->
+
+</mapper>
+
+
+
+
+
+
+
+

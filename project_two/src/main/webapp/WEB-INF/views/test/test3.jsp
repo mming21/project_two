@@ -28,7 +28,8 @@
 
 <script src="jquery-3.2.1.min.js"></script>
 
-<script>	
+<script>
+/* TTS */
 function playBtn() {
 	var input = document.getElementById("input").value;//텍스트 입력값 저장
     var speed = document.getElementsByName("speed");//재생속도 저장 변수
@@ -56,7 +57,7 @@ function playBtn() {
 	}//for	
 }//playBtn()
 
-
+/* STT */
 var txtArea = document.getElementById("txtArea");
 
 //전역변수 선언
@@ -95,6 +96,7 @@ function sttBtn(){
 	})//ajax
 }//sttBtn()
 
+/* Papago */
 function papagoBtn(){
 	$.ajax({
 		url : '/papagoservice',
@@ -107,7 +109,11 @@ function papagoBtn(){
 		}//success			
 	});//ajax
 }//papagoBtn()
-	
+
+/* Memo */
+function gotoList(){
+	alert("힝 속았지");	
+}
 </script>
 
 
@@ -115,7 +121,7 @@ function papagoBtn(){
 <body>
 
 <div class="container" id="TTSservice" align="center">
-	<div><h1>TTS</h1></div>	
+	<div><h2>TTS</h2></div>	
 	<div id="ttsInput">
 		Please enter Korean in the input box below<br><br>
 		<textarea id="input" rows="10" cols="30"></textarea><br><br><br>
@@ -133,9 +139,13 @@ function papagoBtn(){
 </div>
 <hr class="divider" />
 
-<div class="container" id="STTservice" align="center">							
-
-	<div><h2>STT</h2></div>	
+<div class="container" id="STTservice" align="center">
+	<div><h2>STT</h2></div>
+	<div>Record
+		<button id="record">녹음</button>
+		<button id="stop">정지</button><br><br>
+		<div id="sound-clips"></div>
+	</div><br>
 	<div id="sttInput">
 		<div id="uploadPart">
 		    <input type="file" id="file1" name="file1" value="select"> 
@@ -156,19 +166,121 @@ function papagoBtn(){
 
 <hr class="divider" />
 
-<div class="container" id="Memoservice" align="center">
-	<div><h2>Memo</h2></div>
+<div class="container" id="Studyservice" align="center">
+	<div><h2>Study</h2></div>
 
-	<div id="memoInput">
-	<form action="/savememo" method="post">
-	    <input type="text" id="id" style="width:300px;" >id <br><br>
-	    <input type="text" id="num" style="width:300px;" >num <br><br>
-	    <input type="text" id="memo_contents1" style="width:300px; height:200px;" >memo1 <br><br><br>
-	    <input type="text" id="memo_contents2" style="width:300px; height:200px;" >memo2 <br><br><br>
-		<input type="submit" value="확인">
+	<div id="studyInput">
+	<form action="/savestudy" method="post">	
+		<div>
+		    <input type="text" name="member_id" style="width:300px;" placeholder="member_id" ><br><br>
+		</div>
+		<div>
+		    <input type="text" name="study_id" style="width:300px;" placeholder="study_id"><br><br>
+		</div>
+		<div>
+		    <input type="text" name="title" style="width:300px;" placeholder="title"><br><br>
+		</div>
+		<div>
+		    <input type="text" name="study_memo1" style="width:300px; height:200px;" placeholder="memo1"> <br><br><br>
+		</div>
+		<div>
+		    <input type="text" name="study_memo2" style="width:300px; height:200px;" placeholder="memo2" > <br><br><br>
+		</div>
+		<div>
+		    <input type="date" name="study_date" style="width:300px;" ><br><br><br>		
+		</div>
+		<div>
+			<button type="submit" id="submit">확인</button>
+			<button type="reset" id="cancel">초기화</button>
+		</div>
+	</form>
+	<form action="studylist">
+		<button id="gotoList" onclick="gotoList()">리스트 이동</button>
 	</form>
 	</div>
 </div>
+
+<script>
+
+
+/* mic */
+const record = document.getElementById("record")
+const stop = document.getElementById("stop")
+const soundClips = document.getElementById("sound-clips")
+
+if (navigator.mediaDevices) {
+	
+	console.log('getUserMedia supported.')
+	const constraints = {
+		audio: true
+		}
+	
+	let chunks = []	
+	navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
+		
+		const mediaRecorder = new MediaRecorder(stream)//녹음기
+		
+		record.onclick = function() {//녹음 버튼 클릭시에
+			mediaRecorder.start()// 음성 녹음 시작하라
+			console.log(mediaRecorder.state)
+			console.log("recorder started")
+			record.style.background = "red"
+			record.style.color = "black"
+			}//record.onclick
+			
+		stop.onclick = function() {//정지 버튼 클릭시에
+			mediaRecorder.stop()//녹음 정지시켜라
+			console.log(mediaRecorder.state)
+			console.log("recorder stopped")
+			record.style.background = ""
+			record.style.color = ""
+			}//stop.onclick
+				
+		mediaRecorder.ondataavailable = function(e) {
+			chunks.push(e.data)
+			}
+		//녹음 정지시킨 상태가 되면 실행하라
+				
+		mediaRecorder.onstop = function(e) {
+			console.log("data available after MediaRecorder.stop() called.")
+			
+			//추가 구현 예정
+			//3.audio태그를 재생한다-녹음내용 확인한다.
+			var audio = document.createElement('audio');
+			audio.setAttribute("controls", '');
+			audio.cotrols = true;
+			soundClips.appendChild(audio);
+			
+			const blob = new Blob(chunks, {'type' : "audio/mp3"});
+			var mp3URL = URL.createObjectURL(blob);
+			audio.src = mp3URL;
+			
+			//4. 다음 녹음파일을 위해 비워둔다
+			chunks = [];
+			//5. 파일 저장
+			var a = document.createElement('a'); //audio ssrc = 'mp3 url' controls
+			soundClips.appendChild(a); //div태그 내부 audio태그 추가한다 다음에 a태그 추가
+			a.href = mp3URL;
+			a.innerHTML = "MP3파일로 저장";
+			a.download = "mictest.mp3";
+			
+			var now = new Date();
+			var year = now.getFullYear();
+			var month = ('0' + now.getMonth() + 1).slice(-2);
+			var day = now.getDate();
+			var dateString = year + month + day;
+			console.log(dateString);
+			
+			a.download = "mictest" + dateString + ".mp3";
+			//6. 스프링 서버로 업로드
+			}//mediaRecorder.onstop
+			
+			})//then 
+			.catch(function(err) {
+				console.log('The following error occurred: ' + err)
+				})
+}
+</script>
 
 </body>
 </html>

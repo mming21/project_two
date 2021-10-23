@@ -1,8 +1,10 @@
 package memo;
 
+import java.util.List;
+
 public interface MemoService {
 	
 	public void saveMemo(MemoVO vo);
-	public void deleteMemo(String id, String num);
+	public List<MemoVO> memoList(String id, String num);
 
 }

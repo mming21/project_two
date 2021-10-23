@@ -8,7 +8,7 @@
 <!-- 1. sql 실행 결과 EmpVO 매핑 -->
 <typeAliases>
  <typeAlias type="member.MemberVO" alias="memberVO" />
- <typeAlias type="memo.MemoVO" alias="memoVO" />
+ <typeAlias type="study.StudyInfoVO" alias="studyinfoVO" />
 </typeAliases>
 
 </configuration>

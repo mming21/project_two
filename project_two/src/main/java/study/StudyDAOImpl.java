@@ -1,4 +1,4 @@
-package memo;
+package study;
 
 import java.util.List;
 
@@ -10,20 +10,20 @@ import org.springframework.stereotype.Repository;
 @Mapper
 @Repository
 @Primary
-public class MemoDAOImpl implements MemoDAO {
+public class StudyDAOImpl implements StudyDAO {
 	
 	@Autowired
-	MemoDAO dao;
+	StudyDAO dao;
 	
 	@Override
-	public void saveMemo(MemoVO vo){
-		dao.saveMemo(vo);
+	public void saveStudy(StudyInfoVO vo){
+		dao.saveStudy(vo);
 	}
 
 	@Override
-	public List<MemoVO> memoList(String id, String num) {
-		List<MemoVO> list = dao.memoList(id, num);
+	public List<StudyInfoVO> studyList() {
+		List<StudyInfoVO> list = dao.studyList();
 		return list; 
-	}	
+	}
 
 }
