@@ -5,9 +5,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-//List<UsersVO> userslist = (List<UsersVO>)request.getAttribute("userslist");
 List<StudyInfoVO> studyinfolist = (List<StudyInfoVO>)request.getAttribute("studyinfolist");
-//String title = (String)request.getAttribute("userstitle");
 %>
 <!DOCTYPE html>
 <html>
@@ -32,7 +30,7 @@ List<StudyInfoVO> studyinfolist = (List<StudyInfoVO>)request.getAttribute("study
     <%for(int i=0; i < studyinfolist.size(); i++){ %>
     <tr>
     	<td>
-    		<input name="title1" type="checkbox" value="<%=studyinfolist.get(i).getTitle()%>"></input>
+    		<input id="title1" name="title1" type="checkbox" value="<%=studyinfolist.get(i).getTitle()%>"></input>
      		<a href="/main" ><%=studyinfolist.get(i).getTitle()%></a> 
     	</td>
 	</tr>
