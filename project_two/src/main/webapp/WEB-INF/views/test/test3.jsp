@@ -27,7 +27,6 @@
 <title>Insert title here</title>
 
 <script src="jquery-3.2.1.min.js"></script>
-
 <script>
 /* TTS */
 function playBtn() {
@@ -114,6 +113,14 @@ function papagoBtn(){
 function gotoList(){
 	alert("힝 속았지");	
 }
+
+
+function check(){
+	var ch = document.getElementById("checkbox").checked;
+	if(ch == false){
+		alert("title을 입력하세요");		
+	}	
+}
 </script>
 
 
@@ -199,6 +206,7 @@ function gotoList(){
 	</form>
 	</div>
 </div>
+
 
 <script>
 

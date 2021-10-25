@@ -50,6 +50,7 @@ public class APIExamSTT {
                 while ((inputLine = br.readLine()) != null) {
                     response.append(inputLine);
                 }
+                
                 br.close();
                 System.out.println(response.toString());
             } else {
