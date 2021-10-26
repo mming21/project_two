@@ -199,10 +199,8 @@ function check(){
 		<div>
 			<button type="submit" id="submit">확인</button>
 			<button type="reset" id="cancel">초기화</button>
+			<button id="gotoList" onclick="location='test1.jsp">리스트 이동</button>
 		</div>
-	</form>
-	<form action="studylist">
-		<button id="gotoList" onclick="gotoList()">리스트 이동</button>
 	</form>
 	</div>
 </div>

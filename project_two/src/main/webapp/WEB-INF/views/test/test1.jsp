@@ -9,7 +9,8 @@
 </head>
 <body>
 <c:forEach items="${studylist }" var="studyinfovo">
-${studyinfovo.title } : ${studyinfovo.study_memo1 } : ${studyinfovo.study_memo2 } <br> 
+<%-- ${studyinfovo.member_id } :${studyinfovo.study_id} :${studyinfovo.title } : ${studyinfovo.study_memo1 } : ${studyinfovo.study_memo2 } : ${studyinfovo.study_date}  <br>  --%>
+${studyinfovo.title } : ${studyinfovo.study_memo1 } : ${studyinfovo.study_memo2 } : ${studyinfovo.study_date}  <br> 
 </c:forEach>
 </body>
 </html>
