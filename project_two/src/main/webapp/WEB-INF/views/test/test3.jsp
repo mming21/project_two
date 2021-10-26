@@ -7,20 +7,10 @@
 <head>
 
 <style>
-/* .servicepart{
-	background-color: skyblue;	
-}
-.content{
-	background-color: gray;
+.container{
 	float : left;
 }
-.button{
-  padding: 6px 10px;
-  background-color:#FF6600;
-  border-radius: 4px;
-  color: white;
-  cursor: pointer;
-} */
+
 </style>
 
 <meta charset="UTF-8">
@@ -110,8 +100,10 @@ function papagoBtn(){
 }//papagoBtn()
 
 /* Memo */
-function gotoList(){
-	alert("힝 속았지");	
+function gotoList(frm){
+	frm.action="/studyList";
+	frm.submit();
+	return true;
 }
 
 
@@ -126,6 +118,7 @@ function check(){
 
 </head>
 <body>
+<div class="main">
 
 <div class="container" id="TTSservice" align="center">
 	<div><h2>TTS</h2></div>	
@@ -146,13 +139,18 @@ function check(){
 </div>
 <hr class="divider" />
 
-<div class="container" id="STTservice" align="center">
-	<div><h2>STT</h2></div>
-	<div>Record
+<div class="container" id="Recordservice" align="center">
+	<div><h2>Record</h2></div>
+	<div>
 		<button id="record">녹음</button>
 		<button id="stop">정지</button><br><br>
 		<div id="sound-clips"></div>
 	</div><br>
+</div>
+<hr class="divider" />
+
+<div class="container" id="STTservice" align="center">
+	<div><h2>STT</h2></div>
 	<div id="sttInput">
 		<div id="uploadPart">
 		    <input type="file" id="file1" name="file1" value="select"> 
@@ -198,13 +196,16 @@ function check(){
 		</div>
 		<div>
 			<button type="submit" id="submit">확인</button>
-			<button type="reset" id="cancel">초기화</button>
-			<button id="gotoList" onclick="location='test1.jsp">리스트 이동</button>
+			<button type="reset" id="cancel">초기화</button><br><br>
 		</div>
+	</form>
+	<form action="/studylist">
+		<input type="submit" id="studylidt" value="리스트 조회">	
 	</form>
 	</div>
 </div>
 
+</div>
 
 <script>
 
