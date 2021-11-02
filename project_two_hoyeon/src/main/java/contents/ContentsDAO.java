@@ -12,7 +12,7 @@ public interface ContentsDAO {
 	public List<ContentsVO> contentsList();
 	
 	public ArrayList<ContentsVO> contentsOne();
-	
+	public List<ContentsVO> titleList(String content_title);
 
 	
 }

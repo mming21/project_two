@@ -9,6 +9,7 @@
 <typeAliases>
  <typeAlias type="member.MemberVO" alias="memberVO" />
  <typeAlias type="users.StudyInfoVO" alias="studyinfoVO"></typeAlias>
+ <typeAlias type="study.StudyInfoVO" alias="studyinfoVO2"></typeAlias>
  <typeAlias type="contents.ContentsVO" alias="contvo"/>
 </typeAliases>
 

@@ -60,6 +60,7 @@ public class MemberDAOImpl implements MemberDAO {
 
 	}
 
+	//관리자 멤버리스트
 	@Override
 	public List<MemberVO> memberlist() {
 		return dao.memberlist();

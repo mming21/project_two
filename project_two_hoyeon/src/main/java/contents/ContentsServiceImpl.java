@@ -25,8 +25,17 @@ public class ContentsServiceImpl implements ContentsService {
 		ArrayList<ContentsVO> title = dao.contentsOne();
 		return title;
 	}
-	
 
+
+	@Override
+	public List<ContentsVO> titleList(String content_title) {
+		List<ContentsVO> list = dao.titleList(content_title);
+		return list;
+	}
+
+
+	
+	
 
 }
         

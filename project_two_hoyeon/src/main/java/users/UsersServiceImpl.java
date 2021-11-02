@@ -22,12 +22,6 @@ public class UsersServiceImpl implements UsersService{
 	}
 
 	@Override
-	public List<StudyInfoVO> getWord(StudyInfoVO vo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public String getTitle() {
 		String title = dao.getTitle();
 		return title;
@@ -40,22 +34,28 @@ public class UsersServiceImpl implements UsersService{
 	}
 
 	@Override
-	public List<StudyInfoVO> StudyinfoList() {
-		List<StudyInfoVO> studyinfolist = (List<StudyInfoVO>) dao.getStudyinfoList();
-		return studyinfolist;
-	}
-
-	@Override
 	public List<StudyInfoVO> getWord(String title, String member_id) {
-		List<StudyInfoVO> searchlist = (List<StudyInfoVO>) dao.getWord(title, member_id);
+		List<StudyInfoVO> searchlist = dao.getWord(title, member_id);
 		return searchlist;
 	}
 
 	@Override
-	public void boardDelete(String title) {
-		dao.boardDelete(title);
+	public void boardDelete(String delete) {
+		dao.boardDelete(delete);
 	}
 
+	@Override
+	public List<StudyInfoVO> StudyinfoList(String current_id) {
+		List<StudyInfoVO> studyinfolist = (List<StudyInfoVO>)dao.getStudyinfoList(current_id);
+		return studyinfolist;
+	}
+
+	@Override
+	public List<StudyInfoVO> StudyinfoListAll() {
+		List<StudyInfoVO> studyinfolistall = (List<StudyInfoVO>)dao.getStudyinfoListAll();
+		return studyinfolistall;
+	}
+	
 	
 	
 	

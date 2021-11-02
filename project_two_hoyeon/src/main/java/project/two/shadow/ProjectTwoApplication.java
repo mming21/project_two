@@ -11,7 +11,8 @@ import contents.ContentsVO;
 import member.MemberController;
 import member.MemberDAOImpl;
 import stt.STTController;
-import totalservice.TotalServiceController;
+import study.StudyController;
+import study.StudyDAOImpl;
 import translation.PapagoController;
 import tts.TTSController;
 import upload.UploadController;
@@ -24,7 +25,8 @@ import users.UsersDAO;
 @ComponentScan(basePackageClasses = UploadController.class)
 @ComponentScan(basePackageClasses = PapagoController.class)
 @ComponentScan(basePackageClasses = TTSController.class)
-@ComponentScan(basePackageClasses = TotalServiceController.class)
+
+//수민
 @ComponentScan(basePackageClasses = MemberController.class)
 @MapperScan(basePackageClasses = MemberDAOImpl.class)
 
@@ -36,6 +38,10 @@ import users.UsersDAO;
 //호연
 @MapperScan(basePackageClasses = UsersDAO.class)
 @ComponentScan(basePackageClasses = TestController2.class)
+
+//종섭
+@MapperScan(basePackageClasses = StudyDAOImpl.class)
+@ComponentScan(basePackageClasses = StudyController.class)
 
 public class ProjectTwoApplication {
 

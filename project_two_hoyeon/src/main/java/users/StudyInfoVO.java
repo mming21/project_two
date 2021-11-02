@@ -1,6 +1,6 @@
 package users;
 
-import java.util.List;
+import java.util.Date;
 
 public class StudyInfoVO {
 	String member_id;
@@ -9,14 +9,7 @@ public class StudyInfoVO {
 	String study_memo1;
 	String study_memo2;
 	String study_date;
-	List<StudyInfoVO> searchlist;
 	
-	public List<StudyInfoVO> getSearchlist() {
-		return searchlist;
-	}
-	public void setSearchlist(List<StudyInfoVO> searchlist) {
-		this.searchlist = searchlist;
-	}
 	public String getMember_id() {
 		return member_id;
 	}
@@ -53,5 +46,12 @@ public class StudyInfoVO {
 	public void setStudy_date(String study_date) {
 		this.study_date = study_date;
 	}
+	@Override
+	public String toString() {
+		return "StudyinfoVO [id="+ member_id +"<br>study_memo1=" + study_memo1 + "<br>study_memo1=" + study_memo2 + 
+				"<br>study_date=" + study_date;
+	}
+	
+	
 
 }

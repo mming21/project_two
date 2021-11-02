@@ -8,8 +8,12 @@
  select * from member
 </select>
 
-<select id="getStudyinfoList" resultType="users.StudyInfoVO">
+<select id="getStudyinfoListAll" resultType="users.StudyInfoVO">
  select * from STUDYINFO
+</select>
+
+<select id="getStudyinfoList" resultType="users.StudyInfoVO" parameterType="String">
+ select * from STUDYINFO where member_id = #{current_id}
 </select>
 <!-- 
 <delete id="deleteBoard" parameterType="users.UsersVO">
@@ -20,8 +24,8 @@ delete from STUDYINFO where STUDY_ID like #{study_id}
 select title from STUDYINFO where member_id = #{member_id}
 </select>
 
-<select id="getWord" resultType="users.StudyInfoVO" parameterType="String">
-select title from STUDYINFO where title like #{title} and member_id = #{member_id}
+<select id="getWord" resultType="users.StudyInfoVO" parameterType="users.StudyInfoVO">
+select title from STUDYINFO where title like #{title} and member_id=#{member_id}
 </select>
 
 <delete id="boardDelete" parameterType="String">

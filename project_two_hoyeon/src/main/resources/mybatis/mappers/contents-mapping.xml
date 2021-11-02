@@ -9,6 +9,10 @@
 select * from content_info
 </select>
 
+<select id="titleList" resultType="contvo">
+select * from content_info where content_title=#{content_title}
+</select>
+
 <select id="contentsOne" resultType="contvo">
 select content_title from content_info
 </select>

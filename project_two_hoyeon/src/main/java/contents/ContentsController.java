@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -18,24 +19,25 @@ public class ContentsController {
 	@Qualifier("contentservice")
 	ContentsService service;
 
-	@RequestMapping("/contentsinput")
-	@ResponseBody
-	public ModelAndView contentsinput() {
-		System.out.println("컨트롤러");
+	
+	
+	
+	//contentstitle_타이틀 page
+	@RequestMapping("/contents")
+	public ModelAndView contents(String content_title) {
 		ModelAndView mv = new ModelAndView();
-		ContentsVO vo = new ContentsVO();
-		List<ContentsVO> contentslist = service.contentsList();
-		System.out.println(contentslist.size());
-		mv.addObject("contentslist", contentslist);
-		mv.setViewName("/cont/contentsinput");
+		String imagetitle = content_title;
+		List<ContentsVO> contentslist = service.titleList(content_title);
+		mv.addObject("contentstitle", contentslist);
+		mv.setViewName("/cont/contentstitle");
 		return mv;
 		
-		
 	}
-	@RequestMapping("/contents")
+	
+	//contents_상세페이지 page
+	@RequestMapping("/contents1")
 	public ModelAndView contents(int content_id) {
 		System.out.println("시작");
-		ContentsVO vo = new ContentsVO();
 		int j = content_id;
 		ModelAndView mv = new ModelAndView();
 		List<ContentsVO> contentslist = service.contentsList();
@@ -46,4 +48,16 @@ public class ContentsController {
 
 	}
 	
+	//contentstitle_의견 sumit
+	@RequestMapping("/content_mail")
+	public String content_mail() throws Exception{
+		return "/cont/content_mail";
+	}
+	
+	/*
+	 * @RequestMapping("/return_content") public ModelAndView return_content() {
+	 * ModelAndView mv = new ModelAndView();
+	 * 
+	 * }
+	 */
 }
