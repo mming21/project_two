@@ -46,7 +46,6 @@
                         <li class="nav-item"><a class="nav-link" href='/study'>Study</a></li>
                         <li class="nav-item"><a class="nav-link" href='/studylist'>My list</a></li>
                         <li class="nav-item"><a class="nav-link" href="/mypage">My page</a></li> 
-                        <li class="nav-item"><a class="nav-link" href="/insertmember">Join</a></li>
                         <li class="nav-item"><a class="nav-link" href='/logout'>Log out</a></li>
               
                     </ul>

@@ -9,7 +9,7 @@ select * from member where id=#{id}
 </select>
 
 <select id="idCheck" parameterType="String" resultType="Integer">
-select count(*) from member where id = #{id}
+select count(*) from member where id=#{id}
 </select>
 
 <select id="pwCheck" parameterType="memberVO" resultType="Integer">
@@ -35,13 +35,13 @@ select * from member
 
 <update id="updatemember" parameterType="memberVO">
 update member
-set pw = #{pw} , email=#{email}, phone_number=#{phone_number}, nickname=#{nickname}
+set pw = #{pw}, email=#{email}, phone_number=#{phone_number}, nickname=#{nickname}
 where id=#{id}
 
 </update>
 
 <delete id="deletemember" parameterType="String">
-delete member where id=#{id}
+delete from member and studyinfo where id=#{id}
 </delete>
 
 </mapper>

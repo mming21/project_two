@@ -102,6 +102,12 @@ font-family: Heebo black;
 </style>
 
 <script>
+function enterkey() {
+	var loginForm = document.login;
+	if (window.event.keyCode == 13) {
+		loginForm.submit();
+    }
+}
 
 $(document).ready(function(){
 	$("#btnLogin").click(function(){
@@ -157,7 +163,7 @@ function studybtn(){
             </div>
         </nav>
         
-        <!-- 로그인 -->
+     <!-- 로그인 -->
         <div id="modal">
    
     <div class="modal_content">
@@ -166,12 +172,13 @@ function studybtn(){
        <div id="space_little"></div>
         <form action="main" name="login" method="post">
 		
-		<div id="space5"></div> <div id="log_in_typo">ID:</div> <div id="space4"></div>
-		<input class="textarea2" id="id" type="text" autofocus="autofocus" name="id" placeholder="10-digit" maxlength="10">
+		<div id="space5"></div> 
+		<div id="log_in_typo">ID:</div> <div id="space4"></div>
+		<input class="textarea2" id="id1" type="text" autofocus="autofocus" name="id" placeholder="10-digit" maxlength="10">
 		<div id="space_little"></div>
 		
 		<div id="log_in_typo">Password:</div> 
-		<input class="textarea2" id ="pw" name = "pw" type="password" name="pw" maxlength="4" placeholder="4-digit">
+		<input class="textarea2" id ="pw2" name = "pw" type="password" onkeyup="enterkey()" name="pw" maxlength="10" placeholder="10-digit">
 		<div id="space_little"></div>
 		
 		<input class="btn-primary btn-xl2" id ="btnLogin" type="button" value="confirm" >
@@ -179,11 +186,20 @@ function studybtn(){
 		</form>
         </center>
        
+       
     </div>
     <div class="modal_layer"></div>
 </div>
 
 <script>
+function enterkey() {
+	var loginForm = document.login;
+	if (window.event.keyCode == 13) {
+		loginForm.submit();
+    }
+}
+
+
     $("#modal_open_btn").click(function(){
         $("#modal").attr("style", "display:flex");
     });
@@ -220,23 +236,26 @@ function studybtn(){
                            <!-- 이 달의 추천 -->
           <div id="monthly_typo">Monthly Recommendation</div><br>
 <form action=/contents>
+<!-- 컨텐츠 카테고리 버튼 -->
 	<table>
 		<center>
 			<% for (int i=0; i < 4; i++) {%>
-			<a class="btn btn-primary btn-xl1" href="./contents?content_title=<%=contentslist.get(i).getContent_title() %>"><%=contentslist.get(i).getContent_title()%></a>
-			<% } %>			
-		</center>
-		<div id="space_little"></div>
-		<!-- 이미지 영역 -->
+			<a class="btn btn-primary btn-xl1" onclick="studybtn()"><%=contentslist.get(i).getContent_title()%></a>
+			<% }%>	<br>
+	   </center> 
+		
+   <div id="space_little"></div>
+<!-- 컨텐츠 이미지 -->
 		<tr>
-			<% for (int i=0; i < contentslist.size(); i++) {%>
+			<% for (int i=0; i < 4; i++) {%>
 			<th>
-				<a target="_blank" href="●">
-				<img onclick="location.href='./contents?content_title=<%=contentslist.get(i).getContent_title() %>'"
-				src=<%=contentslist.get(i).getContent_url()%> style="width:10em; height:15em;"></a>
+				
+				<img onclick="studybtn()"
+				src=<%=contentslist.get(i).getContent_url()%> style= "cursor: pointer; width:10em; height:15em; "></a>
 				<% } %>
 			</th>
 		</tr>
+
 	</table>
 </form>
                         <div id="space_little"></div>
@@ -255,7 +274,7 @@ function studybtn(){
                 <hr class="divider" />
                 <div id="toReveal">Kulture is a word combined with 'Korea' and 'Culture'.
                 We recommend various contents popular in Korea. <br>
-                We provides Shadowing Service so that you can develop your Koraen language skills using K-contents you are interested in.</div>
+                We provide Shadowing Service so that you can develop your Koraen language skills using K-contents you are interested in.</div>
                 <div id="space_little2"></div>
                 <div class="row gx-4 gx-lg-5">
                     <div class="col-lg-4 col-md-6 text-center">

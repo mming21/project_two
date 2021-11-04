@@ -29,7 +29,7 @@ select title from STUDYINFO where title like #{title} and member_id=#{member_id}
 </select>
 
 <delete id="boardDelete" parameterType="String">
-delete STUDYINFO where title = #{title}
+delete from STUDYINFO where title = #{title}
 </delete>
 
 </mapper>

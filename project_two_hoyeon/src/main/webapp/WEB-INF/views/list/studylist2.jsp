@@ -16,7 +16,7 @@ List<StudyInfoVO> searchlist = (List<StudyInfoVO>)request.getAttribute("searchli
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Project</title>
+        <title>kulture: search</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap Icons-->
@@ -44,7 +44,6 @@ List<StudyInfoVO> searchlist = (List<StudyInfoVO>)request.getAttribute("searchli
                         <li class="nav-item"><a class="nav-link" href='/study'>Study</a></li>
                         <li class="nav-item"><a class="nav-link" href='/studylist'>My list</a></li>
                         <li class="nav-item"><a class="nav-link" href="/mypage">My page</a></li> 
-                        <li class="nav-item"><a class="nav-link" href="/insertmember">Join</a></li>
                         <li class="nav-item"><a class="nav-link" href='/logout'>Log out</a></li>
                         
               
@@ -104,6 +103,7 @@ table{
 	border : 2px solid;
 	margin-left : auto;
 	margin-right : auto;
+	width: 1000px;
 }
 td{
 	border : 1px solid;
@@ -121,6 +121,7 @@ th{
 input{
 	text-align: center;
 }
+
 </style>
 
 

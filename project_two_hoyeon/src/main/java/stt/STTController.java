@@ -14,10 +14,11 @@ public class STTController {
 	@Autowired
 	STTService sttservice;
 	
+	/*
 	@RequestMapping("/stt")
 	public String serviceForm() {
 		return "/stt/sttinput";
-	}
+	}*/
 	
 	//upload파일 저장 후 파일명 전달
     @RequestMapping("/uploadresult")

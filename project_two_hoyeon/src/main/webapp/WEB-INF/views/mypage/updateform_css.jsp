@@ -95,7 +95,7 @@ function deleteMember(){
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="main">Kulture</a>
+                <a class="navbar-brand" href="main2">Kulture</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
@@ -103,7 +103,6 @@ function deleteMember(){
                         <li class="nav-item"><a class="nav-link" href='/study'>Study</a></li>
                         <li class="nav-item"><a class="nav-link" href='/studylist'>My list</a></li>
                         <li class="nav-item"><a class="nav-link" href="/mypage">My page</a></li> 
-                        <li class="nav-item"><a class="nav-link" href="/insertmember">Join</a></li>
                         <li class="nav-item"><a class="nav-link" href='/logout'>Log out</a></li>
               
                     </ul>
@@ -131,14 +130,14 @@ function deleteMember(){
                             
                             <!-- PW input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" name="pw" id="pw" type="password" maxlength="4" placeholder="4 digit..." required="required" value="${sessionScope.pw }"/>
+                                <input class="form-control" name="pw" id="pw" type="password" maxlength="10" placeholder="10 digit..." required="required" value="${sessionScope.pw }"/>
                                 <label for="pw">Password</label>
                                 <div class="invalid-feedback">Password is required.</div>
                             </div>
                             
                             <!-- pw 확인 -->
                              <div class="form-floating mb-3">
-                                <input class="form-control" name="pwchk" id="pwchk" type="password" maxlength="4" placeholder="4 digit..." required="required" value="${sessionScope.pw }"/>
+                                <input class="form-control" name="pwchk" id="pwchk" type="password" maxlength="10" placeholder="10 digit..." required="required" value="${sessionScope.pw }"/>
                                 <label for="pwchk">Password Check</label>
                                 <div class="invalid-feedback">Password is required.</div>
                             </div>
@@ -165,7 +164,7 @@ function deleteMember(){
                 
                             <!-- NickName input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" name="nickname" id="nickname" type="text" placeholder="Enter your nickname..." maxlength="4" required="required" value="${sessionScope.nickname }"/>
+                                <input class="form-control" name="nickname" id="nickname" type="text" placeholder="Enter your nickname..." maxlength="8" required="required" value="${sessionScope.nickname }"/>
                                 <label for="nickname">Nickname</label>
                                 <div class="invalid-feedback">A nickname is required.</div>
                             </div>

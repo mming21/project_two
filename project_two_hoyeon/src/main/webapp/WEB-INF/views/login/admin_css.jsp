@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>kulture: admin page</title>
+        <title>kulture: admin</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap Icons-->
@@ -55,52 +55,9 @@ $(document).ready(function(){
 
 </script>
     </head>      
-        <!-- 로그인 -->
-        <div id="modal">
-   
-    <div class="modal_content">
-        <h2>Log in</h2>
-       
-        <form action="main" name="login" method="post">
-		ID: <input id="id" type="text" autofocus="autofocus" name="id" placeholder="10-digit" maxlength="10"><br>
-		Password: <input id ="pw" name = "pw" type="password" name="pw" maxlength="4" placeholder="4-digit">
-		<input id ="btnLogin" type="button" value="확인">
-		</form>
-        <button type="submit" id="modal_close_btn">닫기</button>      
-       
-    </div>
-    <div class="modal_layer"></div>
-</div>
 
-<script>
-    $("#modal_open_btn").click(function(){
-        $("#modal").attr("style", "display:flex");
-    });
-   
-     $("#modal_close_btn").click(function(){
-        $("#modal").attr("style", "display:none");
-    });
-  
-</script>
-
-<style>
-/* .servicepart{
-	background-color: skyblue;	
-}
-.content{
-	background-color: gray;
-	float : left;
-}
-.button{
-  padding: 6px 10px;
-  background-color:#FF6600;
-  border-radius: 4px;
-  color: white;
-  cursor: pointer;
-} */
-</style>
         
-<title>Insert title here</title>
+<title>Kulture: admin</title>
 </head>
 
 
@@ -136,14 +93,15 @@ function deleteMember(id){
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="http://localhost:9007/main">Kulture</a>
+                <a class="navbar-brand" href="main3">Kulture</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                     	<li class="nav-item"><a class="nav-link">${sessionScope.nickname }</a></li>
+                        <li class="nav-item"><a class="nav-link" href='/admin'>admin</a></li> 
                         <li class="nav-item"><a class="nav-link" href="/study">Study</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/mypage">My page</a></li> 
-                        <li class="nav-item"><a class="nav-link" href="/insertmember">Join</a></li>
+                        <li class="nav-item"><a class="nav-link" href='/studylist'>My list</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/mypage">My page</a></li>
                         <li class="nav-item"><a class="nav-link" href='/logout'>Log out</a></li>
                      	
 
@@ -196,9 +154,10 @@ td{
 <tbody>
 <c:forEach items="${memberlist }" var="membervo">
 <tr>
-<form action="studylist">
-	<td><input name="admin_id" type="submit" value="${membervo.id }"></td>
+<form action='/studylist'>
+	<td><input name="click_id" type="submit" value="${membervo.id }"></td>
 </form>
+	<td><c:out value="${membervo.id }"/></td>
 	<td><c:out value="${membervo.pw }"/></td>
 	<td><c:out value="${membervo.name }"/></td>
 	<td><c:out value="${membervo.email }"/></td>
@@ -213,8 +172,21 @@ td{
 	
 	<br>
 	<br>
-	 
 	
+<!-- <script src="/jquery-3.2.1.min.js"></script>
+<script>
+function send(){
+	var f = document.f;
+	document.f.action='/studylist2';
+	document.f.target='_blank';
+	document.f.submit();
+	
+	document.f.action='/gotoStudy';
+	document.f.target='_blank';
+	document.f.submit();
+	
+}
+</script>	 --> 
 	
 
 <%-- ${membervo.id }  ${membervo.pw } : ${membervo.name } : ${membervo.email } :${membervo.phone_number } :${membervo.nickname } 

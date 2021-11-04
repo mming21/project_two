@@ -23,47 +23,6 @@
 <link href="css/styles.css" rel="stylesheet" />
 
 <script src="jquery-3.2.1.min.js"></script>
-      
-<style>
-
-#modal {
-display:none;
-position:fixed;
-width:100%;
-height:50%;
-z-index:1;
-}
-
-#modal h2 {
-  margin:0;   
-}
-
-#modal button {
-  display:inline-block;
-  width:100px;
-  margin-left:calc(100% - 100px - 10px);
-}
-
-#modal .modal_content {
-  width:300px;
-  margin:100px auto;
-  padding:20px 10px;
-  background:#fff;
-  border:2px solid #666;
-}
-
-#modal .modal_layer {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0, 0, 0, 0.5);
-  z-index:-1;
-}
-
-
-</style>
 
 	
 </head>
@@ -76,11 +35,10 @@ z-index:1;
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 		    <ul class="navbar-nav ms-auto my-2 my-lg-0">
 		        <li class="nav-item"><a class="nav-link">${sessionScope.nickname }</a></li>
-                        <li class="nav-item"><a class="nav-link" href='/study'>Study</a></li>
-                        <li class="nav-item"><a class="nav-link" href='/studylist'>My list</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/mypage">My page</a></li> 
-                        <li class="nav-item"><a class="nav-link" href="/insertmember">Join</a></li>
-                        <li class="nav-item"><a class="nav-link" href='/logout'>Log out</a></li>     
+                <li class="nav-item"><a class="nav-link" href='/study'>Study</a></li>
+                <li class="nav-item"><a class="nav-link" href='/studylist'>My list</a></li>
+                <li class="nav-item"><a class="nav-link" href="/mypage">My page</a></li> 
+                <li class="nav-item"><a class="nav-link" href='/logout'>Log out</a></li>     
 		    </ul>
 		</div>
 	</div>
@@ -99,7 +57,7 @@ function playBtn() {
             speedResult = speed[i].value;
             
 		  	$.ajax({		  		
-				url : '/tts2',
+				url : '/ttsservice',
 				data : {"input": input, "speed":speedResult},
 				dataType : 'text',
 				type : 'post',
@@ -113,11 +71,39 @@ function playBtn() {
 }//playBtn()
 
 /* STT */
-//var txtArea = document.getElementById("txtArea");
-
 //전역변수 선언
 var upload_resultData; //파일명 저장 변수
 var stt_resultData; //stt 결과 데이터 저장 변수
+
+function FunLoadingBarStart(){
+	var backHeight = $(document).height(); //뒷 배경의 상하 폭
+	var backWidth = window.document.body.clientWidth; //뒷 배경의 좌우 폭
+	var backGroundCover = "<div id='back'></div>"; //뒷 배경을 감쌀 커버
+	var loadingBarImage = ''; //가운데 띄워 줄 이미지
+	loadingBarImage += "<div id='loadingBar'>";
+	loadingBarImage += " <img src='assets/img/load-unscreen.gif' width='100px' height='auto' '> "; //로딩 바 이미지
+	loadingBarImage += "</div>";
+	$('body').append(backGroundCover).append(loadingBarImage);
+	$('#back').css({ 'width': backWidth, 'height': backHeight, 'opacity': '0.3' });
+	$('#back').show();
+	$('#loadingBar').show();
+}
+
+function FunLoadingBarEnd() {
+	$('#back, #loadingBar').hide();
+	$('#back, #loadingBar').remove();
+}
+
+function regExp(str){
+	var reg = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi; //특수문자 검증
+	
+	if(reg.test(str)){ //특수문자 제거후 리턴
+		return str.replace(reg, "");
+	}
+	else {//특수문자가 없으므로 본래 문자 리턴
+		return str;
+	}	
+}
 
 //파일 업로드
 function uploadFile(){
@@ -145,10 +131,18 @@ function stt(){
 		data : {"file": upload_resultData},
 		dataType : 'json',
 		type : 'post',
+		beforeSend : function(){
+			FunLoadingBarStart();
+		},
+		complete : function(){
+			FunLoadingBarEnd();
+		},	
 		success : function(sttData){
-			console.log(sttData.text);
-			$("#txtArea").val(JSON.stringify(sttData.text));
-			stt_resultData = JSON.stringify(sttData.text);//stt결과 저장	
+			var param = JSON.stringify(sttData.text);
+			var result = regExp(param);
+			console.log("result = ",result);
+			$("#txtArea").val(result);
+			stt_resultData = result;//stt결과 저장	
 		}//success			
 	})//ajax
 }//sttBtn()
@@ -159,9 +153,11 @@ function papagoBtn(){
 		data : {"text": stt_resultData},
 		dataType : 'json',
 		type : 'post',
-		success : function(result){
+		success : function(trans){
+			var param = JSON.stringify(trans.message.result.translatedText);
+			var result = regExp(param);			
 			console.log(result);
-			$("#txtArea2").val(JSON.stringify(result.message.result.translatedText));
+			$("#txtArea2").val(result);
 		}//success			
 	});//ajax
 }
@@ -169,12 +165,11 @@ function papagoBtn(){
 /* Memo */
 function savestudy(){
 	var studyForm = document.studyform;
-	var studyId = studyForm.study_id.value;
 	var title = studyForm.title.value;
 	var m1 = studyForm.study_memo1.value;
 	var m2 = studyForm.study_memo2.value;
 	
-	if( !studyId || !title || !m1 || !m2 ){
+	if( !title || !m1 || !m2 ){
 		alert("Please enter the content and save it.")
 	}
 	else{
@@ -189,28 +184,31 @@ function savestudy(){
 
 <%
 Date nowTime = new Date();
-SimpleDateFormat sf = new SimpleDateFormat("yyyy년 MM월 dd일 a hh:mm:ss");
+SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 %>
         
 <!-- service -->
 <section class="page-section">
 
 <div class="container px-4 px-lg-5">
-<div class="row gx-4 gx-lg-5">
+<div class="row gx-4 gx-lg-5" >
 	
 	<div class="col-lg-4 col-md-4 text-center">  		
 		<div id="TTSservice" align="center">                        
 			<div><h2>Text To Sound</h2></div>	
 			<hr class="divider" />
 			<div id="ttsInput">
-				Enter Korean in the input box <br>
-				(Max length. 200 Text)<br><br>
-				<textarea class="textarea" id="input" rows="20" cols="30" maxlength=1000></textarea><br><br><br>
-				
-				Select the voice play speed :
+			<div style="height: 50px">
+			Input Korean and listen to the voice. <br><br>
+			</div>
+			<div class="form-floating mb-3">
+                <textarea class="form-control" name="input" id="input" style="height: 500px;" maxlength=2000 required="required"></textarea>
+                <label style="text-align: left;" for="input">(200 text limit)</label>
+            </div>				
+				Select the voice play speed :<br>
 				<input type="radio" name="speed" value="5" /> 0.5x
-				<input type="radio" name="speed" value="0" checked="checked" /> 1.0x
-				<button class="btn btn-primary btn-xl2" onclick="playBtn()">Play</button> <br><br>
+				<input type="radio" name="speed" value="0" checked="checked" /> 1.0x 
+				<button class="btn btn-primary btn-xl2" onclick="playBtn()">Play</button><br><br>
 			</div>
 	
 			<div id="ttsResult">	
@@ -223,33 +221,40 @@ SimpleDateFormat sf = new SimpleDateFormat("yyyy년 MM월 dd일 a hh:mm:ss");
 		<div id="STTservice" align="center">
 			<div><h2>Sound To Text</h2></div>
 			<hr class="divider" />
-			<div align="left">
-			You can record your Korean voices<br><br>
+			<div style="height: 50px">
+			Check your Korean pronunciation by recording<br><br>
 			</div>
 			<div>
-				<div id="sound-clips">
+			<div id="sound-clips">
 				<button class="btn btn-primary btn-xl2" id="record">Record</button>
-				<button class="btn btn-primary btn-xl2" id="stop">Stop</button><br>
-				</div>
-			</div><br>
+				<button class="btn btn-primary btn-xl2" id="stop">Stop</button>
+			</div>
+			</div>
 			
 			<hr class="divider" />
-			<div align="left"><br>
+			<div>
+			Convert Korean audio files to text<br><br>
+			</div>
+			<div style="text-align: left; font-size: 14px;" >			
 			1. Upload your Korean audio file<br>
 			2. Click the 'CONVERT TO TEXT' button<br>
-			3. Audio data format supports mp3, aac, ac3, ogg, flac, and wav<br><br>
+			3. Supports only mp3, aac, ac3, ogg, flac, wav<br><br><br>
 			</div>
 			<div id="sttInput">
 				<div id="uploadPart">			
 				    <input type="file" id="file1" name="file1" value="select">	 
 				</div><br>
-				<div id="sttPart" class="txtarea">
+				<div id="sttPart" >
 					<button class="btn btn-primary btn-xl2" id="sttBtn" onclick="uploadFile()">Convert to Text</button><br><br>
-					<textarea class="textarea" cols="30" rows="5" id="txtArea" ></textarea><br><br>
+					<div class="form-floating mb-3">
+                        <textarea class="form-control" name="txtArea" id="txtArea" style="height: 200px; background-color: white;" readonly="readonly"></textarea>
+                    </div>
 				</div>		
-				<div id="papagoPart" class="txtarea">
+				<div id="papagoPart" >
 					<button class="btn btn-primary btn-xl2" id="sttBtn" onclick="papagoBtn()">Translate to English</button><br><br>
-					<textarea class="textarea" cols="30" rows="5" id="txtArea2"></textarea><br><br>
+					<div class="form-floating mb-3">
+                        <textarea class="form-control" name="txtArea" id="txtArea2" style="height: 200px; background-color: white;" readonly="readonly"></textarea>
+                    </div>
 				</div>
 			</div>
 		</div>		
@@ -260,31 +265,35 @@ SimpleDateFormat sf = new SimpleDateFormat("yyyy년 MM월 dd일 a hh:mm:ss");
 		<div><h2>Study</h2></div>
 		<hr class="divider" />
 			<div id="studyInput">
-				<form action="/savestudy" name="studyform" method="post">	
+				<form action="/savestudy" name="studyform" method="post">
+					<div style="height: 50px">You can write notes</div>
 					<div>
-					    <input class="textarea" type="hidden" name="member_id" value="${sessionScope.id}"><br><br>
+					    <input class="textarea" type="hidden" name="member_id" value="${sessionScope.id}">
 					</div>
 					<div>
-					    <textarea class="textarea" name="study_id" style="width: 10;" maxlength=1000 placeholder="study_id"></textarea><br><br>
+					    <input class="textarea" type="hidden" name="num">
 					</div>
+					<div class="form-floating mb-3">
+                        <textarea class="form-control" name="title" id="title" maxlength="60" required="required"></textarea>
+                        <label for="title">title</label>
+                    </div>
+					<div class="form-floating mb-3">
+                        <textarea class="form-control" name="study_memo1" id="study_memo1" style="height: 350px;" maxlength=1000 required="required"></textarea>
+                        <label for="study_memo1">memo</label>
+                    </div>
+   					<div class="form-floating mb-3">
+                        <textarea class="form-control" name="study_memo2" id="study_memo2" style="height: 350px;" maxlength=1000 required="required"></textarea>
+                        <label for="study_memo2">memo</label>
+                    </div>
 					<div>
-					    <textarea class="textarea" name="title" id="title" maxlength="60" cols="10" placeholder="title"></textarea><br><br>
-					</div>
-					<div>
-					    <textarea class="textarea" name="study_memo1" id="study_memo1" rows="10" cols="30" maxlength=1000 placeholder="memo1"></textarea> <br><br><br>
-					</div>
-					<div>
-					    <textarea class="textarea" name="study_memo2" id="study_memo2" rows="10" cols="30" maxlength=1000 placeholder="memo2" ></textarea> <br><br><br>
-					</div>
-					<div>
-					    <input class="textarea" type="hidden" name="study_date" value="<%=sf.format(nowTime) %>" style="width:300px;" ><br><br><br>	
+					    <input class="textarea" type="hidden" name="study_date" value="<%=sf.format(nowTime) %>" style="width:300px;" >
 					</div>
 					<div>
 						<input class="btn btn-primary btn-xl2"  onclick="savestudy()" type="button" value="Save">				
-						<button class="btn btn-primary btn-xl2" type="reset" id="cancel">Refresh</button><br><br>
+						<button class="btn btn-primary btn-xl2" type="reset" id="cancel">Refresh</button>
+						<button class="btn btn-primary btn-xl2" id="gotoList" onclick="location.href='/studylist'">to the list</button>
 					</div>			
 				</form>
-					<button class="btn btn-primary btn-xl2" id="gotoList" onclick="location.href='/studylist'">to the list</button>
 			</div>
 		</div>
 	</div>

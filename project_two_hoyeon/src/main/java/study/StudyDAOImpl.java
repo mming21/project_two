@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
+import users.StudyInfoVO;
+
 @Mapper
 @Repository
 @Primary
@@ -24,12 +26,6 @@ public class StudyDAOImpl implements StudyDAO {
 	public List<StudyInfoVO> studyList() {
 		List<StudyInfoVO> list = dao.studyList();
 		return list; 
-	}
-	
-	@Override
-	public String getStudyId() {
-		String result = dao.getStudyId();
-		return result;
 	}
 
 	@Override

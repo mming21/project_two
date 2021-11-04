@@ -1,9 +1,8 @@
 package contents;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import java.util.List; 
 import org.springframework.stereotype.Component;
+
 
 @Component
 public class ContentsVO {
@@ -22,6 +21,8 @@ public class ContentsVO {
 	List<ContentsVO> contentlist;
 	String content_url;
 	String content_quotesurl;
+	String content_link;
+	String content_link_desc;
 	
 	public int getContent_id() {
 		return content_id;
@@ -113,11 +114,20 @@ public class ContentsVO {
 	public void setContent_quotesurl(String content_quotesurl) {
 		this.content_quotesurl = content_quotesurl;
 	}
+	public String getContent_link() {
+		return content_link;
+	}
+	public void setContent_link(String content_link) {
+		this.content_link = content_link;
+	}
+	public String getContent_link_desc() {
+		return content_link_desc;
+	}
+	public void setContent_link_desc(String content_link_desc) {
+		this.content_link_desc = content_link_desc;
+	}
 	
-	
-	
-	
-	
+		
 	}
 	
 	

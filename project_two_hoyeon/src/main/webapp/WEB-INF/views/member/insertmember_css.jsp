@@ -29,6 +29,13 @@
 
 </style>
 <script>
+function enterkey() {
+	var loginForm = document.login;
+	if (window.event.keyCode == 13) {
+		loginForm.submit();
+    }
+}
+
 
 $(document).ready(function(){
 	$("#btnLogin").click(function(){
@@ -78,18 +85,19 @@ $(document).ready(function(){
         <!-- 로그인 -->
         <div id="modal">
    
-    <div class="modal_content">
+<div class="modal_content">
         <center>
         <h2 id="log_in">Log in</h2>
        <div id="space_little"></div>
         <form action="main" name="login" method="post">
 		
-		<div id="space5"></div> <div id="log_in_typo">ID:</div> <div id="space4"></div>
+		<div id="space5"></div> 
+		<div id="log_in_typo">ID:</div> <div id="space4"></div>
 		<input class="textarea2" id="id" type="text" autofocus="autofocus" name="id" placeholder="10-digit" maxlength="10">
 		<div id="space_little"></div>
 		
 		<div id="log_in_typo">Password:</div> 
-		<input class="textarea2" id ="pw" name = "pw" type="password" name="pw" maxlength="4" placeholder="4-digit">
+		<input class="textarea2" id ="pw" name = "pw" type="password" onkeyup="enterkey()" name="pw" maxlength="10" placeholder="10-digit">
 		<div id="space_little"></div>
 		
 		<input class="btn-primary btn-xl2" id ="btnLogin" type="button" value="confirm" >

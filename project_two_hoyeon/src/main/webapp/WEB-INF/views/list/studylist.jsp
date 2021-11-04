@@ -6,6 +6,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 List<StudyInfoVO> studyinfolist = (List<StudyInfoVO>)request.getAttribute("studyinfolist");
+String member_id = (String)request.getAttribute("member_id");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +15,7 @@ List<StudyInfoVO> studyinfolist = (List<StudyInfoVO>)request.getAttribute("study
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Project</title>
+        <title>kulture: studylist</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap Icons-->
@@ -39,7 +40,6 @@ List<StudyInfoVO> studyinfolist = (List<StudyInfoVO>)request.getAttribute("study
                         <li class="nav-item"><a class="nav-link" href='/study'>Study</a></li>
                         <li class="nav-item"><a class="nav-link" href='/studylist'>My list</a></li>
                         <li class="nav-item"><a class="nav-link" href="/mypage">My page</a></li> 
-                        <li class="nav-item"><a class="nav-link" href="/insertmember">Join</a></li>
                         <li class="nav-item"><a class="nav-link" href='/logout'>Log out</a></li>
                         
               
@@ -72,11 +72,10 @@ List<StudyInfoVO> studyinfolist = (List<StudyInfoVO>)request.getAttribute("study
     <tr>
     	<td style="text-align:left">
     		<input id="title1" name="title1" type="checkbox" value="<%=studyinfolist.get(i).getTitle()%>" checkid='checked'></input>
-     
-     <a href='/gotoStudy?title=<%=studyinfolist.get(i).getTitle()%>'><%=studyinfolist.get(i).getTitle()%></a>
-     
+     <a href='/gotoStudy?title=<%=studyinfolist.get(i).getTitle()%>&member_id=<%=member_id%>'><%=studyinfolist.get(i).getTitle()%></a>
+      <small><%=studyinfolist.get(i).getStudy_date() %></small>
+      <input type="text" hidden=member_id/>
      		 
-     		<%-- <a href="#" onclick="submitform(this.title, this.member_id)"><%=studyinfolist.get(i).getTitle()%></a>  --%>
     	</td>
 	</tr>
    			<%} %>
@@ -92,6 +91,13 @@ List<StudyInfoVO> studyinfolist = (List<StudyInfoVO>)request.getAttribute("study
 
 <script src="jquery-3.2.1.min.js"></script>
 <script>
+function send(frm){
+	var click_id = document.getElementByName("click_id").value
+	alert(click_id);
+	frm.action = "/gotoStudy";
+	frm.submit();
+}
+
 function submitform(title, member_id){
 	document.gotoStudy.submit();
 }
@@ -99,6 +105,12 @@ function submitform(title, member_id){
 </script>
 
 <style>
+input.click{
+	background-color: transparent;
+	text-decoration: underline;
+	border: none;
+	cursor: pointer;
+}
 div#box1{
 	display: flex;
 	justify-content:center;
@@ -108,6 +120,7 @@ table{
 	border : 2px solid;
 	margin-left : auto;
 	margin-right : auto;
+	width: 1000px;
 }
 td{
 	border : 1px solid;
@@ -124,6 +137,10 @@ th{
 }
 input{
 	text-align: center;
+}
+small{
+	text-align: right;
+	float: right;
 }
 </style>
 <div id="space"></div>

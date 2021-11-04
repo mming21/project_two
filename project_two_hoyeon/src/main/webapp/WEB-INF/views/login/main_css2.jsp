@@ -57,7 +57,6 @@ $(window).on("scroll", function() {
                         <li class="nav-item"><a class="nav-link" href='/study'>Study</a></li>
                         <li class="nav-item"><a class="nav-link" href='/studylist'>My list</a></li>
                         <li class="nav-item"><a class="nav-link" href="/mypage">My page</a></li> 
-                        <li class="nav-item"><a class="nav-link" href="/insertmember">Join</a></li>
                         <li class="nav-item"><a class="nav-link" href='/logout'>Log out</a></li>
                         
               
@@ -81,9 +80,7 @@ $(window).on("scroll", function() {
                    <!-- <div class="col-lg-8 align-self-baseline">
                         <p class="text-white-75 mb-5"></p> </div>-->
 <!-- ==================================================================================== -->
-                        <!-- 타이틀 테스트 -->
-
-
+                        <!-- 타이포 이미지 -->
 
 <div id="contents" class="container" align="center">			
 <div class="container" id="typo"></div>
@@ -92,27 +89,30 @@ $(window).on("scroll", function() {
                            <!-- 이 달의 추천 -->
           <div id="monthly_typo">Monthly Recommendation</div><br>
 <form action=/contents>
+<!-- 컨텐츠 카테고리 버튼 -->
 	<table>
 		<center>
 			<% for (int i=0; i < 4; i++) {%>
 			<a class="btn btn-primary btn-xl1" href="./contents?content_title=<%=contentslist.get(i).getContent_title() %>"><%=contentslist.get(i).getContent_title()%></a>
-			<% } %>			
-		</center>
-		<div id="space_little"></div>
-		<!-- 이미지 영역 -->
+			<% }%>	<br>
+	   </center> 
+		
+   <div id="space_little"></div>
+<!-- 컨텐츠 이미지 -->
 		<tr>
-			<% for (int i=0; i < contentslist.size(); i++) {%>
+			<% for (int i=0; i < 4; i++) {%>
 			<th>
-				<a target="_blank" href="●">
-				<img onclick="location.href='./contents?content_title=<%=contentslist.get(i).getContent_title() %>'"
-				src=<%=contentslist.get(i).getContent_url()%> style="width:10em; height:15em;"></a>
+				
+				<img onclick="location.href='./contents1?content_id=<%=contentslist.get(i).getContent_id() %>'"
+				src=<%=contentslist.get(i).getContent_url()%> style= "cursor: pointer; width:10em; height:15em; "></a>
 				<% } %>
 			</th>
 		</tr>
+
 	</table>
 </form>
                         <div id="space_little"></div>
-                        <a class="btn btn-primary btn-xl" id="studybtn" onclick="studybtn()">Let's Study</a>
+                        <a class="btn btn-primary btn-xl" id="studybtn" onclick="location.href='/study'">Let's Study</a>
                     </div>
 
                 </div> <!-- <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center"> -->

@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -68,6 +69,7 @@ public class MemberController {
     public int IdCheck(String id) throws Exception {
         int count = 0;
         count = service.idCheck(id);
+        System.out.println(count);
         return count;
     }
     
@@ -127,13 +129,13 @@ public class MemberController {
 	}*/
 		
 	//main화면
-			@RequestMapping("/main2")
-			public ModelAndView main2() {
-				ModelAndView mv = new ModelAndView();
-				List<ContentsVO> contentslist = contentservice.contentsList();
-				mv.addObject("contentslist", contentslist);
-				mv.setViewName("/login/main_css2");
-				return mv;
+		@RequestMapping("/main2")
+		public ModelAndView main2() {
+			ModelAndView mv = new ModelAndView();
+			List<ContentsVO> contentslist = contentservice.contentsList();
+			mv.addObject("contentslist", contentslist);
+			mv.setViewName("/login/main_css2");
+			return mv;
 			}
 	
 	//main화면
@@ -209,6 +211,32 @@ public class MemberController {
 	}
 	
 	//관리자
+	@RequestMapping(value="/admin", method=RequestMethod.GET)
+	public ModelAndView admin(HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		if(session.getAttribute("id").equals("admin")) {
+			List<MemberVO> list = service.memberList();
+			mv.addObject("msg", "Admin Page");
+			mv.addObject("memberlist", list);
+			mv.setViewName("/login/admin_css");
+			return mv;
+		}else {
+			List<ContentsVO> contentslist = contentservice.contentsList();
+			mv.addObject("contentslist", contentslist);
+			mv.setViewName("/login/main_css");
+			return mv;
+		}
+	}
+	
+	//관리자 메인
+	@RequestMapping(value="/main3", method=RequestMethod.GET)
+	public ModelAndView adminMain() {
+		ModelAndView mv = new ModelAndView();
+		List<ContentsVO> contentslist = contentservice.contentsList();
+		mv.addObject("contentslist", contentslist);
+		mv.setViewName("/login/admin_main");
+		return mv;
+	}
 
 	
 	

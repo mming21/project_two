@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Kulture: content</title>
+        <title>Kulture: content_mail</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap Icons-->
@@ -105,21 +105,21 @@ $(document).ready(function(){
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="http://localhost:9007/main">Kulture</a>
+                <a class="navbar-brand" href="main2">Kulture</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="/insertmember">Join</a></li>
-                     	<div id="root">    
-                        <li class="nav-item"><a class="nav-link" id="modal_open_btn">Log in</a></li>
-                        </div>
-                        <li class="nav-item"><a class="nav-link" href="/service">Service</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link">${sessionScope.nickname }</a></li>
+                        <li class="nav-item"><a class="nav-link" href='/study'>Study</a></li>
+                        <li class="nav-item"><a class="nav-link" href='/studylist'>My list</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/mypage">My page</a></li> 
+                        <li class="nav-item"><a class="nav-link" href='/logout'>Log out</a></li>
               
                     </ul>
                 </div>
             </div>
         </nav>
+        
         
         <!-- 로그인 -->
         <div id="modal">
@@ -186,23 +186,20 @@ $(document).ready(function(){
             
 
         </section>
-		<div id="space_little"></div>
- 
-        <!-- Footer-->
-        <footer class="bg-light py-5">
-            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2021 - Kulture</div></div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- SimpleLightbox plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+		 <footer class="bg-light py-5">
+		            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2021 - Kulture</div></div>
+		        </footer>
+		        <!-- Bootstrap core JS
+		        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>-->
+		        <!-- SimpleLightbox plugin JS
+		        <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>-->
+		        <!-- Core theme JS
+		        <script src="js/scripts.js"></script>-->
+		        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+		        <!-- * *                               SB Forms JS                               * *-->
+		        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+		        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+		        <!-- <script src="/sb-forms-latest.js"></script> -->
 		
 	
 	</body>

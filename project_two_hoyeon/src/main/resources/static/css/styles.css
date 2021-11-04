@@ -11412,6 +11412,16 @@ header.masthead {
 }
 
 /* 제가 추가하는 것들 */
+header.masthead2 {
+  padding-top: 0rem;
+  padding-bottom: calc(10rem - 4.5rem);
+  background: url("../assets/img/sub_background2.png");/* linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%),  */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
 #typo{
 background: url("../assets/img/typo.png");/* linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%),  */
 background-position: 50% 0%;
@@ -11420,38 +11430,54 @@ background-size: cover;
 width:800px;
 height:400px;
 }
-/*이 달의 추천*/
-.row2 {
-  --bs-gutter-x: 1.5rem;
-  --bs-gutter-y: 0;
-  flex-wrap: wrap;
-  margin-top: calc(-1 * var(--bs-gutter-y));
-  margin-right: calc(-0.5 * var(--bs-gutter-x));
-  margin-left: calc(-0.5 * var(--bs-gutter-x));
-}
-.row2 > * {
-  flex-shrink: 0;
-  width: 100%;
-  max-width: 100%;
-  padding-right: calc(var(--bs-gutter-x) * 0.5);
-  padding-left: calc(var(--bs-gutter-x) * 0.5);
-  margin-top: var(--bs-gutter-y);
+/*이 달의 추천 - contents쪽 jsp*/
+
+hr.divider2 {
+  height: 0.2rem;
+  max-width: 70rem;
+  margin: 1rem auto;
+  background-color: #C27438;
+  opacity: 1;
 }
 
-
-/* 메인화면 아래 포스터넣는 영역*/
-.poster_container{
-	width: 200px;
-  height: 150px;
-  overflow: hidden
+hr.divider3 {
+  height: 4px;
+  max-width: 100px;
+  margin: 1rem auto;
+  background-color: #C27438;
+  opacity: 1;
 }
 
-.poster_container > img {
-  position: absolute;
-  width: 100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+/*카테고리 제목*/
+#title_name {
+font-size:80px;
+font-family: Heebo black;
+color:#BC5200;
+}
+
+#category_title {
+font-size: 3.5rem;
+font-family: Heebo black;
+color:#BC5200;
+}
+
+/*컨텐츠 제목*/
+#contents_title{
+color: #C27438;
+font-size: 18px;
+font-family: Heebo black;
+}
+
+/*contentstitle에 있는 enjoy our contents*/
+#enjoy_typo{
+color: #C27438;
+font-size: 45px;
+font-family: Heebo black;
+}
+
+#ko_content{
+font-size: 15px;
+font-family: 공체;
 }
 
 /* 로그인 영역 */
@@ -11512,6 +11538,16 @@ display: inline-block;
 padding-right: 35px;
 }
 
+#space4_2{
+display: inline-block;
+padding-right: 15px;
+}
+
+#space4_1{
+display: inline-block;
+padding-right: 100px;
+}
+
 #space5{
 display: inline-block;
 padding-left: 30px;
@@ -11547,6 +11583,23 @@ padding-bottom: 50px;
   opacity: 1;
   transform:translate(50px,0px);
 }
+
+#toReveal2 {
+  /*position: absolute;
+  margin-left: -100px;
+  margin-top: 200px;*/
+  opacity: 0;
+  transition: all 2s;
+  text-align: center;
+  /*color: #C27438;
+  font-size: 1.1em;*/
+}
+
+#toReveal2.revealed {
+  opacity: 1;
+  transform:translate(50px,0px);
+}
+
 
 #monthly_typo{
 color: #BC5200;

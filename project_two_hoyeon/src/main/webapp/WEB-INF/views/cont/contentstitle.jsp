@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Project</title>
+        <title>kulture: contents category</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap Icons-->
@@ -30,76 +30,16 @@
         <!-- 제가 적용하는 style 및 sript 부분 -->
         <script src="/jquery-3.2.1.min.js"></script>
 <style>
-#modal {
-display:none;
 
-  position:fixed;
-  width:100%;
-  height:50%;
-  z-index:1;
-}
-
-#modal h2 {
-  margin:0;   
-}
-
-#modal button {
-  display:inline-block;
-  width:100px;
-  margin-left:calc(100% - 100px - 10px);
-}
-
-#modal .modal_content {
-  width:300px;
-  margin:100px auto;
-  padding:20px 10px;
-  background:#fff;
-  border:2px solid #666;
-}
-
-#modal .modal_layer {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0, 0, 0, 0.5);
-  z-index:-1;
-}   
 </style>
 
-<script>
-
-$(document).ready(function(){
-	$("#btnLogin").click(function(){
-		var id = $("#id").val();
-		var pw = $("#pw").val();
-		if(id==""){
-			alert("아이디를 입력하세요.");
-			$("#id").focus();//입력포커스 이동
-			return;//함수종료
-		}
-		if(pw==""){
-			alert("비밀번호를 입력하세요.");
-			$("#pw").focus();//입력포커스 이동
-			return;//함수종료
-		}
-		//폼 내부의 데이터를 전송할 주소
-		//document.login.action="main2"
-		//제출
-		document.login.submit();
-	});
-});
-
-
-</script>
 </head>
 
 <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="http://localhost:9007/main">Kulture</a>
+                <a class="navbar-brand" href="main2">Kulture</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
@@ -107,7 +47,6 @@ $(document).ready(function(){
                         <li class="nav-item"><a class="nav-link" href='/study'>Study</a></li>
                         <li class="nav-item"><a class="nav-link" href='/studylist'>My list</a></li>
                         <li class="nav-item"><a class="nav-link" href="/mypage">My page</a></li> 
-                        <li class="nav-item"><a class="nav-link" href="/insertmember">Join</a></li>
                         <li class="nav-item"><a class="nav-link" href='/logout'>Log out</a></li>
               
                     </ul>
@@ -115,99 +54,82 @@ $(document).ready(function(){
             </div>
         </nav>
         
-        <!-- 로그인 -->
-        <div id="modal">
-   
-    <div class="modal_content">
-        <h2>Log in</h2>
-       
-        <form action="main" name="login" method="post">
-		ID: <input id="id" type="text" autofocus="autofocus" name="id" placeholder="10-digit" maxlength="10"><br>
-		Password: <input id ="pw" name = "pw" type="password" name="pw" maxlength="4" placeholder="4-digit">
-		<input id ="btnLogin" type="button" value="확인">
-		</form>
-        <button type="submit" id="modal_close_btn">닫기</button>      
-       
-    </div>
-    <div class="modal_layer"></div>
-</div>
-
-<script>
-    $("#modal_open_btn").click(function(){
-        $("#modal").attr("style", "display:flex");
-    });
-   
-     $("#modal_close_btn").click(function(){
-        $("#modal").attr("style", "display:none");
-    });
-  
-</script>
 
 <style>
-/* .servicepart{
-	background-color: skyblue;	
+/*
+ #wapper div{border:5px solid #C27438; }
+.divcontents{border-radius:15px; width:1100px; height:395px;}*/
+
+
+#space_little3{
+padding-bottom: 30px;
 }
-.content{
-	background-color: gray;
-	float : left;
-}
-.button{
-  padding: 6px 10px;
-  background-color:#FF6600;
-  border-radius: 4px;
-  color: white;
-  cursor: pointer;
-} */
+
 </style>
 
+
+<header class="masthead2">
 <section class="page-section">
 
+<!-- #BC5200 -->
+<!-- #C27438 -->
 
-<div class="text-center">
+<!-- 카테고리 이름 출력 -->
+<div id=title_name class="text-center">
 <%for (int i=0; i < 1; i++){ %>
-<h1>=<%=contentslist.get(i).getContent_title()%>=</h1> 
+<%=contentslist.get(i).getContent_title()%>
 <%} %>
- </div>
+<!-- <hr class="divider2" /> -->
+</div>
+
  <br>
 
  
 <center>  
-<div class="container px-4 px-lg-5">
-  
+<div id=wapper>
+
+	<div class="title divcontents">
+
 
 <table>
 <thead>
-		<tr>
+		<tr> 
+		<!-- 이미지 나오는 곳 -->
 			<% for (int i=0; i < contentslist.size(); i++) {%>
 			<th>
 			<img img onclick="location.href='./contents1?content_id=<%=contentslist.get(i).getContent_id() %>'"
 			src=<%=contentslist.get(i).getContent_url() %> 
-			style="cursor: pointer;" width=200 height=250>
+			style="cursor: pointer;" width=210 height=300>
+			<!-- <div id="space4"></div> -->
 			<% } %>
-			
 			</th>
+			
 		</tr>
 	</thead>
 	<br>
 	<tbody>
  		<tr>
+ 		<!-- 제목 나오는 곳 -->
  			<% for (int i=0; i < contentslist.size(); i++) {%>
-	 		<td align="center"><%=contentslist.get(i).getContent_name() %></td>
+	 		<td align="center"><br><h6 id="contents_title"><%=contentslist.get(i).getContent_name() %></h6></td>
 			<% } %>
  		</tr>
  	</tbody>
 </table>
 </div>
+</div>
+<!-- <div id="space_little2"></div>
+<p id="enjoy_typo">Enjoy our contents!</p> -->
 	</center>  
+</header>
 
-<br>
-<br>
-<br>
-<br>
+<div id="space_little2"></div>
 
 <div class="text-center">
-<h2>Comming Soon</h2>
+<h2>Comming Soon..</h2>
 </div>
+
+<div></div>
  <br>
 
 
@@ -218,21 +140,33 @@ $(document).ready(function(){
 <table>
 <thead>
 		<tr>
-			<% for (int i=0; i < contentslist.size(); i++) {%>
 			<th>
-			<img img onclick="location.href='./contents1?content_id=<%=contentslist.get(i).getContent_id() %>'"
-			src=<%=contentslist.get(i).getContent_url() %> 
-			style="cursor: pointer;" width=200 height=250>
-			<% } %>
+			<img src= "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxNzA5MDlfOTUg%2FMDAxNTA0OTI3MjA4Njcw.
+			CZ3khVYO1iAns7Fe_lXoOfMyRY7erx_twMKFL_DiJZYg.1BIjwUrgbclWtlGvoecCJV9HpR-HCBoB6uA29zku3Jkg.JPEG.sulijk00%2FNaverBlog_20170909_
+			122005_37.jpg&type=sc960_832"
+			width=150 height=200>
+			<img src= "https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F112%2F2021%2F09%2F16%2F202109160856164695701
+			_20210916085645_01_20210916085811226.jpg&type=sc960_832"
+			width=150 height=200>
+			<img src= "https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F469%2F2018%2F05%2F24%2F0000302046_
+			001_20180525045342233.jpg&type=sc960_832"	
+			width=150 height=200>
+			<img src= "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxNjExMDNfMjIz%2FMDAxNDc4MTUyMzk3MjM3.AWDIXhMFLd9RMUoF_
+			947Ff2o7qT3e-8addbVnr09400g.BJCiyXkuz3qCdpPU1KZRJxZsQsXrPVbj7Ksb_buG8dUg.JPEG.dlgkdms0034%2FIMG_20161103_144722.jpg&type=sc960_832"
+			width=150 height=200>
+			<img src= "https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F109%2F2017%2F03%2F16%2F201703161440779651_
+			58ca25b64245a_99_20170316144304.jpg&type=sc960_832"
+			width=150 height=200>
+			<img src= "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA4MDJfMzcg%2FMDAxNjI3ODk1MDczMDg3.VpMnR_
+			8lxvakr3AcWQVty6hEqG9ftQdN3ki14lZVy0Mg.lFUSQg2FBo3btZrcKeCZkaAEBTkcp7b72hyBgYy-naAg.JPEG.cylab%2FASTRO%2528%25BE%25C6%25BD%25BA%25C6%25AE%25B7%25CE%2529_-_After_Midnight.jpg&type=sc960_832"
+			width=150 height=200>
 			</th>
 		</tr>
 	</thead>
 	<br>
 	<tbody>
  		<tr>
- 			<% for (int i=0; i < contentslist.size(); i++) {%>
-	 		<td align="center"><%=contentslist.get(i).getContent_name() %></td>
-			<% } %>
+			
  		</tr>
  	</tbody>
 </table>
@@ -299,7 +233,7 @@ $(document).ready(function(){
             
 
         </section>
-		<div id="space_little"></div>
+		 <div id="space_little"></div>
  
         <!-- Footer-->
         <footer class="bg-light py-5">
@@ -316,7 +250,6 @@ $(document).ready(function(){
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-		
 	
 	</body>
 </html>

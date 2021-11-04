@@ -29,6 +29,13 @@
 </style>
 
 <script>
+function enterkey() {
+	var loginForm = document.login;
+	if (window.event.keyCode == 13) {
+		loginForm.submit();
+    }
+}
+
 
 $(document).ready(function(){
 	$("#btnLogin").click(function(){
@@ -126,12 +133,13 @@ function idCheck() {
        <div id="space_little"></div>
         <form action="main" name="login" method="post">
 		
-		<div id="space5"></div> <div id="log_in_typo">ID:</div> <div id="space4"></div>
-		<input class="textarea2" id="id2" type="text" autofocus="autofocus" name="id" placeholder="10-digit" maxlength="10">
+		<div id="space5"></div> 
+		<div id="log_in_typo">ID:</div> <div id="space4"></div>
+		<input class="textarea2" id="id1" type="text" autofocus="autofocus" name="id" placeholder="10-digit" maxlength="10">
 		<div id="space_little"></div>
 		
 		<div id="log_in_typo">Password:</div> 
-		<input class="textarea2" id ="pw2" name = "pw" type="password" name="pw" maxlength="4" placeholder="4-digit">
+		<input class="textarea2" id ="pw2" name = "pw" type="password" onkeyup="enterkey()" name="pw" maxlength="10" placeholder="10-digit">
 		<div id="space_little"></div>
 		
 		<input class="btn-primary btn-xl2" id ="btnLogin" type="button" value="confirm" >
@@ -140,6 +148,7 @@ function idCheck() {
         </center>
        
     </div>
+
     <div class="modal_layer"></div>
 </div>
 <script>
@@ -175,17 +184,17 @@ function idCheck() {
                                 <label for="id">ID</label>
                                 <div class="invalid-feedback" >ID is required.</div>
                             </div>
-                            <input type="button" value="중복확인" id="idchk" onclick="idCheck()" ><br><br>
+                            <input type="button" value="ID CHECK" id="idchk" onclick="idCheck()" ><br><br>
                             <!-- PW input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" name="pw" id="pw" type="password" maxlength="4" placeholder="4 digit..." required="required"/>
+                                <input class="form-control" name="pw" id="pw" type="password" maxlength="10" placeholder="10 digit..." required="required"/>
                                 <label for="pw">Password</label>
                                 <div class="invalid-feedback">Password is required.</div>
                             </div>
                             
                             <!-- pw 확인 -->
                              <div class="form-floating mb-3">
-                                <input class="form-control" name="pwchk" id="pwchk" type="password" maxlength="4" placeholder="4 digit..." required="required"/>
+                                <input class="form-control" name="pwchk" id="pwchk" type="password" maxlength="10" placeholder="10 digit..." required="required"/>
                                 <label for="pwchk">Password Check</label>
                                 <div class="invalid-feedback">Password is required.</div>
                             </div>
@@ -212,7 +221,7 @@ function idCheck() {
                 
                             <!-- NickName input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" name="nickname" id="nickname" type="text" placeholder="Enter your nickname..." maxlength="5" required="required" />
+                                <input class="form-control" name="nickname" id="nickname" type="text" placeholder="Enter your nickname..." maxlength="8" required="required" />
                                 <label for="nickname">Nickname</label>
                                 <div class="invalid-feedback">A nickname is required.</div>
                             </div>

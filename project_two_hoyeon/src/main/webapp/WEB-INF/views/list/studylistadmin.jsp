@@ -6,7 +6,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 List<StudyInfoVO> studyinfolistall = (List<StudyInfoVO>)request.getAttribute("studyinfolistall");
-String admin_id = (String)request.getAttribute("admin_id");
+String member_id = (String)request.getAttribute("member_id");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +15,7 @@ String admin_id = (String)request.getAttribute("admin_id");
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Project</title>
+        <title>kulture: admin</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap Icons-->
@@ -37,10 +37,9 @@ String admin_id = (String)request.getAttribute("admin_id");
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                     	<li class="nav-item"><a class="nav-link">${sessionScope.nickname }</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#services">About</a></li>
                         <li class="nav-item"><a class="nav-link" href='/study'>Study</a></li>
+                        <li class="nav-item"><a class="nav-link" href='/studylist'>My list</a></li>
                         <li class="nav-item"><a class="nav-link" href="/mypage">My page</a></li> 
-                        <li class="nav-item"><a class="nav-link" href="/insertmember">Join</a></li>
                         <li class="nav-item"><a class="nav-link" href='/logout'>Log out</a></li>
                         
               
@@ -50,7 +49,7 @@ String admin_id = (String)request.getAttribute("admin_id");
         </nav>
 <br><br><br>
 <center>
-<div id="space"></div>
+<div id="space_little2"></div>
 <div class="col-lg-6 col-md-6 text-center">
 
 <form action="/searchadmin" method="post">
@@ -58,22 +57,29 @@ String admin_id = (String)request.getAttribute("admin_id");
 		<!-- <legend>Search</legend> -->
 			<label><img width="20" height="20" src="https://emojigraph.org/media/apple/magnifying-glass-tilted-left_1f50d.png"></label>
 			<input type = "text" name="title"/>
-			<input name = "member_id" type="hidden" value=<%=admin_id %>>
+			<input name = "member_id" type="hidden" value=<%=member_id %>>
 			<input class="btn btn-primary btn-xl2" id="searchBtn" type="submit" value="Search">
 	</fieldset>
 </form>
-<br>
+<div id="space_little2"></div>
 </div>
+
 </center>
 <div class="container px-4 px-lg-5"  id="box1">
 <form action="/delete" method="post">
 <table>
-	<th>Title</th>
+	<th>
+		Title
+	</th>
     <%for(int i=0; i < studyinfolistall.size(); i++){ %>
     <tr>
     	<td style="text-align:left">
     		<input id="title1" name="title1" type="checkbox" value="<%=studyinfolistall.get(i).getTitle()%>" checkid='checked'></input>
-     		<a href="/main" ><%=studyinfolistall.get(i).getTitle()%></a> 
+     		<a href='/gotoStudy?title=<%=studyinfolistall.get(i).getTitle()%>&member_id=<%=member_id %>'><%=studyinfolistall.get(i).getTitle()%></a>
+<%--      		<a href='/gotoStudy?title=<%=studyinfolistall.get(i).getTitle()%>' ><%=studyinfolistall.get(i).getTitle()%></a>  --%>
+     		 <!-- onclick="sendfunction(this.form)" --> 
+     		<input type="hidden" id="hidden_id" value="admin"/>
+    		<small><%=studyinfolistall.get(i).getStudy_date() %></small>
     	</td>
 	</tr>
    			<%} %>
@@ -87,8 +93,6 @@ String admin_id = (String)request.getAttribute("admin_id");
 </div>
 
 
-<script src="jquery-3.2.1.min.js"></script>
-
 <style>
 div#box1{
 	display: flex;
@@ -99,6 +103,8 @@ table{
 	border : 2px solid;
 	margin-left : auto;
 	margin-right : auto;
+	width: 1000px;
+	
 }
 td{
 	border : 1px solid;
@@ -112,6 +118,7 @@ tr{
 th{
 	font-size: xx-large;
 	font-style: oblique;
+	text-align: center;
 }
 input{
 	text-align: center;
@@ -122,6 +129,10 @@ footer{
 	bottom:0px; 
 	height:60px; 
 	width:100%; 
+}
+small{
+	text-align: right;
+	float: right;
 }
 </style>
 
